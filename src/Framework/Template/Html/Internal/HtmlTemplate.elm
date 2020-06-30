@@ -37,21 +37,4 @@ getActorsToSpawn :
             , actorElement : ActorElement appActors
             }
 getActorsToSpawn =
-    toNodes
-        >> Template.getActorElementDescendants
-        >> List.map
-            (\((ActorElement actor _ id _ _) as actorElement) ->
-                { actor = actor
-                , reference = id
-                , actorElement = actorElement
-                }
-            )
-        >> List.foldl
-            (\tuple result ->
-                if List.member tuple result then
-                    result
-
-                else
-                    tuple :: result
-            )
-            []
+    toNodes >> Template.getActorsToSpawn

@@ -14,11 +14,11 @@ The goal of these packages is to be able to provide different parsers and render
 - [Elm Actor Framework - Templates](https://github.com/tricycle/elm-actor-framework-template)
   - [Demo](https://tricycle.github.io/elm-actor-framework)
 - [Elm Actor Framework - Templates - Html](https://github.com/tricycle/elm-actor-framework-template-html)
-  - [Demo](https://tricycle.github.io/elm-actor-framework-html)
+  - [Demo](https://tricycle.github.io/elm-actor-framework-template-html)
   - **Parse** Html Template (Using [`hecrj/html-parser`](https://github.com/hecrj/html-parser))
   - **Render** Html (Using [`elm/html`](https://github.com/elm/html))
-
-* [Elm Actor Framework - Templates - Markdown](https://github.com/tricycle/elm-actor-framework-template-markdown)
+- [Elm Actor Framework - Templates - Markdown](https://github.com/tricycle/elm-actor-framework-template-markdown)
+  - [Demo](https://tricycle.github.io/elm-actor-framework-template-markdown)
   - **Parse** Markdown (Using [dillonkearns/elm-markdown](https://github.com/dillonkearns/elm-markdown))
 
 Without the listed additional template packages this module can still be used to

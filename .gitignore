@@ -1,0 +1,12 @@
+node_modules
+package-lock.json
+.DS_Store
+.coverage
+*.log
+elm-stuff
+.elm-doc
+tests/VerifyExamples
+example/*.html
+example/*.js
+src/Framework/Template.elm
+src/Framework/Actor.elm

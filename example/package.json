@@ -1,0 +1,13 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "elm-live": "^4.0.2"
+  },
+  "scripts": {
+    "start": "elm-live ./src/Main.elm -- --debug",
+    "build": "elm make src/Main.elm --output ../docs/index.html"
+  }
+}

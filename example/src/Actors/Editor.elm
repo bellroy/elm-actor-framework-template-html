@@ -1,6 +1,6 @@
 module Actors.Editor exposing (actor)
 
-import Actors exposing (Actors(..), templateComponents)
+import Actors exposing (Actors(..), components)
 import Address exposing (Address(..))
 import AppFlags exposing (AppFlags(..))
 import Components.Editor as Editor exposing (MsgIn(..), MsgOut(..))
@@ -15,7 +15,7 @@ import Msg exposing (AppMsg(..), Msg)
 
 actor : Actor AppFlags Editor.Model Model (Html Msg) Msg
 actor =
-    Editor.component templateComponents
+    Editor.component components
         |> Actor.altInit
             (\init ( pid, appFlags ) ->
                 case appFlags of

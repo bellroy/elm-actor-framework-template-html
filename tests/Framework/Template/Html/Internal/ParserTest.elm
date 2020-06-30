@@ -2,10 +2,10 @@ module Framework.Template.Html.Internal.ParserTest exposing (suite)
 
 import Expect
 import Framework.Template exposing (ActorElement(..), Node(..))
+import Framework.Template.Component as Component
+import Framework.Template.Components as Components
 import Framework.Template.Html.Internal.HtmlTemplate as HtmlTemplate
 import Framework.Template.Html.Internal.Parser as Parser
-import Framework.Template.Html.Internal.TemplateComponent as TemplateComponent
-import Framework.Template.Html.Internal.TemplateComponents as TemplateComponents
 import Test exposing (Test, describe, test)
 
 
@@ -22,10 +22,10 @@ test_parse =
         [ test "template  1" <|
             \_ ->
                 let
-                    templateComponents =
-                        TemplateComponents.fromList
-                            [ TemplateComponent.make { nodeName = "some-actor", actor = "someActor" }
-                                |> TemplateComponent.setDefaultAttributes [ ( "class", "ClassName" ) ]
+                    components =
+                        Components.fromList
+                            [ Component.make { nodeName = "some-actor", actor = "someActor" }
+                                |> Component.setDefaultAttributes [ ( "class", "ClassName" ) ]
                             ]
 
                     input =
@@ -50,6 +50,6 @@ test_parse =
                         ]
                             |> HtmlTemplate.fromNodes
                 in
-                Expect.equal (Parser.parse templateComponents input)
+                Expect.equal (Parser.parse components input)
                     (Ok output)
         ]

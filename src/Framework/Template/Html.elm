@@ -1,27 +1,38 @@
 module Framework.Template.Html exposing
-    ( HtmlTemplate, blank, parse, fromNodes, toNodes, getActorsToSpawn, render, renderAndInterpolate
-    , TemplateComponent, make, setDefaultAttributes
-    , TemplateComponents, empty, fromList, insert, remove, union
+    ( HtmlTemplate
+    , blank, parse, fromNodes
+    , toNodes, render, renderAndInterpolate
+    , getActorsToSpawn
     )
 
 {-|
 
-@docs HtmlTemplate, blank, parse, fromNodes, toNodes, getActorsToSpawn, render, renderAndInterpolate
+@docs HtmlTemplate
 
-@docs TemplateComponent, make, setDefaultAttributes
 
-@docs TemplateComponents, empty, fromList, insert, remove, union
+# Creation
+
+@docs blank, parse, fromNodes
+
+
+# Rendering
+
+@docs toNodes, render, renderAndInterpolate
+
+
+# Utility
+
+@docs getActorsToSpawn
 
 -}
 
 import Dict exposing (Dict)
 import Framework.Actor exposing (Pid)
 import Framework.Template exposing (ActorElement, Node)
+import Framework.Template.Components exposing (Components)
 import Framework.Template.Html.Internal.HtmlTemplate as HtmlTemplate
 import Framework.Template.Html.Internal.Parser as Parser
 import Framework.Template.Html.Internal.Render as Render
-import Framework.Template.Html.Internal.TemplateComponent as TemplateComponent exposing (TemplateComponent)
-import Framework.Template.Html.Internal.TemplateComponents as TemplateComponents exposing (TemplateComponents)
 import Html exposing (Html)
 
 
@@ -40,12 +51,12 @@ blank =
 
 {-| Parse a string containing valid Html into an HtmlTemplate
 
-Add TemplateComponents to replace Html Elements with your Actors based on their
+Add Components to replace Html Elements with your Actors based on their
 nodeNames. (e.g. `<my-actor></my-actor>`)
 
 -}
 parse :
-    TemplateComponents appActors
+    Components appActors
     -> String
     -> Result String (HtmlTemplate appActors)
 parse =
@@ -114,97 +125,3 @@ renderAndInterpolate :
     -> List (Html msg)
 renderAndInterpolate =
     Render.renderAndInterpolate
-
-
-
-----------------------------------------------------------------
-
-
-{-| A TemplateComponent binds your Actor to an Html Element based on its
-nodename.
--}
-type alias TemplateComponent appActors =
-    TemplateComponent.TemplateComponent appActors
-
-
-{-| Create a new TemplateComponent
-
-Note that W3C requires a `-` in the name for web component definitions.
-Using the web component definition for your Actors is probably the most elegant
-and means you can set up a fallback easily.
-
--}
-make : { nodeName : String, actor : appActors } -> TemplateComponent appActors
-make =
-    TemplateComponent.make
-
-
-{-| Set default attributes on your TemplateComponents.
-
-These will be overwritten by attributes defined on the actual found element.
-
--}
-setDefaultAttributes :
-    List ( String, String )
-    -> TemplateComponent appActors
-    -> TemplateComponent appActors
-setDefaultAttributes =
-    TemplateComponent.setDefaultAttributes
-
-
-
-----------------------------------------------------------------
-
-
-{-| A collection of template components
--}
-type alias TemplateComponents appActors =
-    TemplateComponents.TemplateComponents appActors
-
-
-{-| Create an empty set of template components
--}
-empty : TemplateComponents appActors
-empty =
-    TemplateComponents.empty
-
-
-{-| Create a collection of template components from a list of template components
--}
-fromList :
-    List (TemplateComponent appActors)
-    -> TemplateComponents appActors
-fromList =
-    TemplateComponents.fromList
-
-
-{-| Add a template component to a collection of template components
--}
-insert :
-    TemplateComponent appActors
-    -> TemplateComponents appActors
-    -> TemplateComponents appActors
-insert =
-    TemplateComponents.insert
-
-
-{-| Remove a template component from a collection of template components
--}
-remove :
-    TemplateComponent appActors
-    -> TemplateComponents appActors
-    -> TemplateComponents appActors
-remove =
-    TemplateComponents.remove
-
-
-{-| Combine two sets of template components
-If there is a collision, preference is given to the first set of template
-components.
--}
-union :
-    TemplateComponents appActors
-    -> TemplateComponents appActors
-    -> TemplateComponents appActors
-union =
-    TemplateComponents.union

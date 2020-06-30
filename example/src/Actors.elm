@@ -1,6 +1,7 @@
-module Actors exposing (Actors(..), templateComponents)
+module Actors exposing (Actors(..), components)
 
-import Framework.Template.Html as HtmlTemplate exposing (TemplateComponents)
+import Framework.Template.Components as Components exposing (Components)
+import Framework.Template.Component as Component
 
 
 type Actors
@@ -9,15 +10,15 @@ type Actors
     | Counter
 
 
-templateComponents : TemplateComponents Actors
-templateComponents =
-    HtmlTemplate.fromList
-        [ HtmlTemplate.make
+components : Components Actors
+components =
+    Components.fromList
+        [ Component.make
             { actor = Counter
             , nodeName = "counter-component"
             }
-            |> HtmlTemplate.setDefaultAttributes [ ("value", "10") ]
-        , HtmlTemplate.make
+            |> Component.setDefaultAttributes [ ("value", "10") ]
+        , Component.make
             { actor = Layout
             , nodeName = "layout-component"
             }

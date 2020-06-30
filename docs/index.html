@@ -5592,16 +5592,17 @@ var $elm$core$Dict$get = F2(
 			}
 		}
 	});
-var $author$project$Framework$Template$Html$Internal$TemplateComponents$toDict = function (_v0) {
+var $author$project$Framework$Template$Internal$Components$toDict = function (_v0) {
 	var dict = _v0.a;
 	return dict;
 };
-var $author$project$Framework$Template$Html$Internal$TemplateComponents$get = function (query) {
+var $author$project$Framework$Template$Internal$Components$get = function (query) {
 	return A2(
 		$elm$core$Basics$composeR,
-		$author$project$Framework$Template$Html$Internal$TemplateComponents$toDict,
+		$author$project$Framework$Template$Internal$Components$toDict,
 		$elm$core$Dict$get(query));
 };
+var $author$project$Framework$Template$Components$getByNodeName = $author$project$Framework$Template$Internal$Components$get;
 var $elm$core$Bitwise$and = _Bitwise_and;
 var $elm$core$Array$repeat = F2(
 	function (n, e) {
@@ -6355,17 +6356,19 @@ var $hecrj$html_parser$Html$Parser$nodeToString = function (node_) {
 			return '<!-- ' + (comment_ + ' -->');
 	}
 };
-var $author$project$Framework$Template$Html$Internal$TemplateComponent$toActor = function (_v0) {
+var $author$project$Framework$Template$Internal$Component$toActor = function (_v0) {
 	var actor = _v0.a.actor;
 	return actor;
 };
-var $author$project$Framework$Template$Html$Internal$TemplateComponent$toDefaultAttributes = function (_v0) {
+var $author$project$Framework$Template$Component$toActor = $author$project$Framework$Template$Internal$Component$toActor;
+var $author$project$Framework$Template$Internal$Component$toDefaultAttributes = function (_v0) {
 	var defaultAttributes = _v0.a.defaultAttributes;
 	return defaultAttributes;
 };
+var $author$project$Framework$Template$Component$toDefaultAttributes = $author$project$Framework$Template$Internal$Component$toDefaultAttributes;
 var $elm$core$String$trim = _String_trim;
 var $author$project$Framework$Template$Html$Internal$Parser$parserNodeToTemplateNode = F2(
-	function (templateComponents, htmlParserNode) {
+	function (components, htmlParserNode) {
 		switch (htmlParserNode.$) {
 			case 'Comment':
 				return $elm$core$Maybe$Nothing;
@@ -6381,35 +6384,35 @@ var $author$project$Framework$Template$Html$Internal$Parser$parserNodeToTemplate
 				var nodeName = htmlParserNode.a;
 				var attributes = htmlParserNode.b;
 				var children = htmlParserNode.c;
-				var _v1 = A2($author$project$Framework$Template$Html$Internal$TemplateComponents$get, nodeName, templateComponents);
+				var _v1 = A2($author$project$Framework$Template$Components$getByNodeName, nodeName, components);
 				if (_v1.$ === 'Nothing') {
 					return $elm$core$Maybe$Just(
 						A3(
 							$author$project$Framework$Template$Element,
 							nodeName,
 							attributes,
-							A2($author$project$Framework$Template$Html$Internal$Parser$parserNodesToTemplateNodes, templateComponents, children)));
+							A2($author$project$Framework$Template$Html$Internal$Parser$parserNodesToTemplateNodes, components, children)));
 				} else {
-					var templateComponent = _v1.a;
+					var component = _v1.a;
 					return $elm$core$Maybe$Just(
 						$author$project$Framework$Template$Actor(
 							A5(
 								$author$project$Framework$Template$ActorElement,
-								$author$project$Framework$Template$Html$Internal$TemplateComponent$toActor(templateComponent),
+								$author$project$Framework$Template$Component$toActor(component),
 								nodeName,
 								$truqu$elm_md5$MD5$hex(
 									$hecrj$html_parser$Html$Parser$nodeToString(htmlParserNode)),
 								A2(
 									$author$project$Framework$Template$Html$Internal$Parser$mergeAttributes,
 									attributes,
-									$author$project$Framework$Template$Html$Internal$TemplateComponent$toDefaultAttributes(templateComponent)),
-								A2($author$project$Framework$Template$Html$Internal$Parser$parserNodesToTemplateNodes, templateComponents, children))));
+									$author$project$Framework$Template$Component$toDefaultAttributes(component)),
+								A2($author$project$Framework$Template$Html$Internal$Parser$parserNodesToTemplateNodes, components, children))));
 				}
 		}
 	});
-var $author$project$Framework$Template$Html$Internal$Parser$parserNodesToTemplateNodes = function (templateComponents) {
+var $author$project$Framework$Template$Html$Internal$Parser$parserNodesToTemplateNodes = function (components) {
 	return $elm$core$List$filterMap(
-		$author$project$Framework$Template$Html$Internal$Parser$parserNodeToTemplateNode(templateComponents));
+		$author$project$Framework$Template$Html$Internal$Parser$parserNodeToTemplateNode(components));
 };
 var $elm$core$String$isEmpty = function (string) {
 	return string === '';
@@ -9869,7 +9872,7 @@ var $hecrj$html_parser$Html$Parser$run = function (str) {
 		A2($hecrj$html_parser$Html$Parser$oneOrMore, 'node', $hecrj$html_parser$Html$Parser$node),
 		str);
 };
-var $author$project$Framework$Template$Html$Internal$Parser$parse = function (templateComponents) {
+var $author$project$Framework$Template$Html$Internal$Parser$parse = function (components) {
 	return A2(
 		$elm$core$Basics$composeR,
 		$hecrj$html_parser$Html$Parser$run,
@@ -9879,14 +9882,14 @@ var $author$project$Framework$Template$Html$Internal$Parser$parse = function (te
 			$elm$core$Result$map(
 				A2(
 					$elm$core$Basics$composeR,
-					$author$project$Framework$Template$Html$Internal$Parser$parserNodesToTemplateNodes(templateComponents),
+					$author$project$Framework$Template$Html$Internal$Parser$parserNodesToTemplateNodes(components),
 					$author$project$Framework$Template$Html$Internal$HtmlTemplate$fromNodes))));
 };
 var $author$project$Framework$Template$Html$parse = $author$project$Framework$Template$Html$Internal$Parser$parse;
 var $author$project$Components$Editor$update = F3(
-	function (templateComponents, msgIn, model) {
+	function (components, msgIn, model) {
 		var input = msgIn.a;
-		var _v1 = A2($author$project$Framework$Template$Html$parse, templateComponents, input);
+		var _v1 = A2($author$project$Framework$Template$Html$parse, components, input);
 		if (_v1.$ === 'Err') {
 			var error = _v1.a;
 			return _Utils_Tuple3(
@@ -9912,11 +9915,11 @@ var $author$project$Components$Editor$update = F3(
 		}
 	});
 var $author$project$Components$Editor$init = F2(
-	function (templateComponents, _v0) {
+	function (components, _v0) {
 		var defaultInput = _v0.b;
 		return A3(
 			$author$project$Components$Editor$update,
-			templateComponents,
+			components,
 			$author$project$Components$Editor$OnInput(defaultInput),
 			{error: $elm$core$Maybe$Nothing, input: ''});
 	});
@@ -10040,14 +10043,67 @@ var $author$project$Components$Editor$view = F3(
 						]))
 				]));
 	});
-var $author$project$Components$Editor$component = function (templateComponents) {
+var $author$project$Components$Editor$component = function (components) {
 	return {
-		init: $author$project$Components$Editor$init(templateComponents),
+		init: $author$project$Components$Editor$init(components),
 		subscriptions: $elm$core$Basics$always($elm$core$Platform$Sub$none),
-		update: $author$project$Components$Editor$update(templateComponents),
+		update: $author$project$Components$Editor$update(components),
 		view: $author$project$Components$Editor$view
 	};
 };
+var $author$project$Actors$Counter = {$: 'Counter'};
+var $author$project$Actors$Layout = {$: 'Layout'};
+var $author$project$Framework$Template$Internal$Components$Components = function (a) {
+	return {$: 'Components', a: a};
+};
+var $author$project$Framework$Template$Internal$Components$fromDict = $author$project$Framework$Template$Internal$Components$Components;
+var $author$project$Framework$Template$Internal$Component$toNodeName = function (_v0) {
+	var nodeName = _v0.a.nodeName;
+	return nodeName;
+};
+var $author$project$Framework$Template$Internal$Components$fromList = A2(
+	$elm$core$Basics$composeR,
+	$elm$core$List$map(
+		function (component) {
+			return _Utils_Tuple2(
+				$author$project$Framework$Template$Internal$Component$toNodeName(component),
+				component);
+		}),
+	A2($elm$core$Basics$composeR, $elm$core$Dict$fromList, $author$project$Framework$Template$Internal$Components$fromDict));
+var $author$project$Framework$Template$Components$fromList = $author$project$Framework$Template$Internal$Components$fromList;
+var $author$project$Framework$Template$Internal$Component$Component = function (a) {
+	return {$: 'Component', a: a};
+};
+var $author$project$Framework$Template$Internal$Component$make = function (_v0) {
+	var nodeName = _v0.nodeName;
+	var actor = _v0.actor;
+	return $author$project$Framework$Template$Internal$Component$Component(
+		{actor: actor, defaultAttributes: _List_Nil, nodeName: nodeName});
+};
+var $author$project$Framework$Template$Component$make = $author$project$Framework$Template$Internal$Component$make;
+var $author$project$Framework$Template$Internal$Component$setDefaultAttributes = F2(
+	function (defaultAttributes, _v0) {
+		var r = _v0.a;
+		return $author$project$Framework$Template$Internal$Component$Component(
+			_Utils_update(
+				r,
+				{defaultAttributes: defaultAttributes}));
+	});
+var $author$project$Framework$Template$Component$setDefaultAttributes = $author$project$Framework$Template$Internal$Component$setDefaultAttributes;
+var $author$project$Actors$components = $author$project$Framework$Template$Components$fromList(
+	_List_fromArray(
+		[
+			A2(
+			$author$project$Framework$Template$Component$setDefaultAttributes,
+			_List_fromArray(
+				[
+					_Utils_Tuple2('value', '10')
+				]),
+			$author$project$Framework$Template$Component$make(
+				{actor: $author$project$Actors$Counter, nodeName: 'counter-component'})),
+			$author$project$Framework$Template$Component$make(
+			{actor: $author$project$Actors$Layout, nodeName: 'layout-component'})
+		]));
 var $author$project$Framework$Internal$Message$ForAddress = F2(
 	function (a, b) {
 		return {$: 'ForAddress', a: a, b: b};
@@ -10062,59 +10118,6 @@ var $author$project$Framework$Internal$Message$sendToAddress = function (address
 			$author$project$Framework$Internal$Message$operate));
 };
 var $author$project$Framework$Message$sendToAddress = $author$project$Framework$Internal$Message$sendToAddress;
-var $author$project$Actors$Counter = {$: 'Counter'};
-var $author$project$Actors$Layout = {$: 'Layout'};
-var $author$project$Framework$Template$Html$Internal$TemplateComponents$TemplateComponents = function (a) {
-	return {$: 'TemplateComponents', a: a};
-};
-var $author$project$Framework$Template$Html$Internal$TemplateComponents$fromDict = $author$project$Framework$Template$Html$Internal$TemplateComponents$TemplateComponents;
-var $author$project$Framework$Template$Html$Internal$TemplateComponent$toNodeName = function (_v0) {
-	var nodeName = _v0.a.nodeName;
-	return nodeName;
-};
-var $author$project$Framework$Template$Html$Internal$TemplateComponents$fromList = A2(
-	$elm$core$Basics$composeR,
-	$elm$core$List$map(
-		function (templateComponent) {
-			return _Utils_Tuple2(
-				$author$project$Framework$Template$Html$Internal$TemplateComponent$toNodeName(templateComponent),
-				templateComponent);
-		}),
-	A2($elm$core$Basics$composeR, $elm$core$Dict$fromList, $author$project$Framework$Template$Html$Internal$TemplateComponents$fromDict));
-var $author$project$Framework$Template$Html$fromList = $author$project$Framework$Template$Html$Internal$TemplateComponents$fromList;
-var $author$project$Framework$Template$Html$Internal$TemplateComponent$TemplateComponent = function (a) {
-	return {$: 'TemplateComponent', a: a};
-};
-var $author$project$Framework$Template$Html$Internal$TemplateComponent$make = function (_v0) {
-	var nodeName = _v0.nodeName;
-	var actor = _v0.actor;
-	return $author$project$Framework$Template$Html$Internal$TemplateComponent$TemplateComponent(
-		{actor: actor, defaultAttributes: _List_Nil, nodeName: nodeName});
-};
-var $author$project$Framework$Template$Html$make = $author$project$Framework$Template$Html$Internal$TemplateComponent$make;
-var $author$project$Framework$Template$Html$Internal$TemplateComponent$setDefaultAttributes = F2(
-	function (defaultAttributes, _v0) {
-		var r = _v0.a;
-		return $author$project$Framework$Template$Html$Internal$TemplateComponent$TemplateComponent(
-			_Utils_update(
-				r,
-				{defaultAttributes: defaultAttributes}));
-	});
-var $author$project$Framework$Template$Html$setDefaultAttributes = $author$project$Framework$Template$Html$Internal$TemplateComponent$setDefaultAttributes;
-var $author$project$Actors$templateComponents = $author$project$Framework$Template$Html$fromList(
-	_List_fromArray(
-		[
-			A2(
-			$author$project$Framework$Template$Html$setDefaultAttributes,
-			_List_fromArray(
-				[
-					_Utils_Tuple2('value', '10')
-				]),
-			$author$project$Framework$Template$Html$make(
-				{actor: $author$project$Actors$Counter, nodeName: 'counter-component'})),
-			$author$project$Framework$Template$Html$make(
-			{actor: $author$project$Actors$Layout, nodeName: 'layout-component'})
-		]));
 var $author$project$Actors$Editor$actor = A2(
 	$author$project$Framework$Actor$fromComponent,
 	{
@@ -10154,7 +10157,7 @@ var $author$project$Actors$Editor$actor = A2(
 						_Utils_Tuple2(pid, ''));
 				}
 			}),
-		$author$project$Components$Editor$component($author$project$Actors$templateComponents)));
+		$author$project$Components$Editor$component($author$project$Actors$components)));
 var $author$project$AppFlags$CounterFlags = function (a) {
 	return {$: 'CounterFlags', a: a};
 };
@@ -10210,31 +10213,29 @@ try {
 	};
 } catch ($) {
 	throw 'Some top-level definitions from `Framework.Template` are causing infinite recursion:\n\n  ┌─────┐\n  │    getActorElementDescendants\n  └─────┘\n\nThese errors are very tricky, so read https://elm-lang.org/0.19.1/bad-recursion to learn how to fix it!';}
+var $author$project$Framework$Template$getActorsToSpawn = A2(
+	$elm$core$Basics$composeR,
+	$author$project$Framework$Template$getActorElementDescendants,
+	A2(
+		$elm$core$Basics$composeR,
+		$elm$core$List$map(
+			function (actorElement) {
+				var actor = actorElement.a;
+				var id = actorElement.c;
+				return {actor: actor, actorElement: actorElement, reference: id};
+			}),
+		A2(
+			$elm$core$List$foldl,
+			F2(
+				function (tuple, result) {
+					return A2($elm$core$List$member, tuple, result) ? result : A2($elm$core$List$cons, tuple, result);
+				}),
+			_List_Nil)));
 var $author$project$Framework$Template$Html$Internal$HtmlTemplate$toNodes = function (_v0) {
 	var nodes = _v0.a;
 	return nodes;
 };
-var $author$project$Framework$Template$Html$Internal$HtmlTemplate$getActorsToSpawn = A2(
-	$elm$core$Basics$composeR,
-	$author$project$Framework$Template$Html$Internal$HtmlTemplate$toNodes,
-	A2(
-		$elm$core$Basics$composeR,
-		$author$project$Framework$Template$getActorElementDescendants,
-		A2(
-			$elm$core$Basics$composeR,
-			$elm$core$List$map(
-				function (actorElement) {
-					var actor = actorElement.a;
-					var id = actorElement.c;
-					return {actor: actor, actorElement: actorElement, reference: id};
-				}),
-			A2(
-				$elm$core$List$foldl,
-				F2(
-					function (tuple, result) {
-						return A2($elm$core$List$member, tuple, result) ? result : A2($elm$core$List$cons, tuple, result);
-					}),
-				_List_Nil))));
+var $author$project$Framework$Template$Html$Internal$HtmlTemplate$getActorsToSpawn = A2($elm$core$Basics$composeR, $author$project$Framework$Template$Html$Internal$HtmlTemplate$toNodes, $author$project$Framework$Template$getActorsToSpawn);
 var $author$project$Framework$Template$Html$getActorsToSpawn = $author$project$Framework$Template$Html$Internal$HtmlTemplate$getActorsToSpawn;
 var $author$project$Components$Layout$update = F2(
 	function (msgIn, model) {

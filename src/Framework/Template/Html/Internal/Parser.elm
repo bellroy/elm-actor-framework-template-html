@@ -2,29 +2,38 @@ module Framework.Template.Html.Internal.Parser exposing (parse)
 
 import Dict
 import Framework.Template as Template
+import Framework.Template.Component as Component
+import Framework.Template.Components as Components exposing (Components)
 import Framework.Template.Html.Internal.HtmlTemplate as HtmlTemplate exposing (HtmlTemplate)
-import Framework.Template.Html.Internal.TemplateComponent as TemplateComponent
-import Framework.Template.Html.Internal.TemplateComponents as TemplateComponents exposing (TemplateComponents)
 import Html.Parser as HtmlParser
 import MD5
 import Parser as Parser
 
 
-parse : TemplateComponents appActors -> String -> Result String (HtmlTemplate appActors)
-parse templateComponents =
+parse :
+    Components appActors
+    -> String
+    -> Result String (HtmlTemplate appActors)
+parse components =
     HtmlParser.run
         >> Result.mapError Parser.deadEndsToString
         >> Result.map
-            (parserNodesToTemplateNodes templateComponents >> HtmlTemplate.fromNodes)
+            (parserNodesToTemplateNodes components >> HtmlTemplate.fromNodes)
 
 
-parserNodesToTemplateNodes : TemplateComponents appActors -> List HtmlParser.Node -> List (Template.Node appActors)
-parserNodesToTemplateNodes templateComponents =
-    List.filterMap (parserNodeToTemplateNode templateComponents)
+parserNodesToTemplateNodes :
+    Components appActors
+    -> List HtmlParser.Node
+    -> List (Template.Node appActors)
+parserNodesToTemplateNodes components =
+    List.filterMap (parserNodeToTemplateNode components)
 
 
-parserNodeToTemplateNode : TemplateComponents appActors -> HtmlParser.Node -> Maybe (Template.Node appActors)
-parserNodeToTemplateNode templateComponents htmlParserNode =
+parserNodeToTemplateNode :
+    Components appActors
+    -> HtmlParser.Node
+    -> Maybe (Template.Node appActors)
+parserNodeToTemplateNode components htmlParserNode =
     case htmlParserNode of
         HtmlParser.Comment _ ->
             Nothing
@@ -40,23 +49,23 @@ parserNodeToTemplateNode templateComponents htmlParserNode =
                 Just <| Template.Text a
 
         HtmlParser.Element nodeName attributes children ->
-            case TemplateComponents.get nodeName templateComponents of
+            case Components.getByNodeName nodeName components of
                 Nothing ->
-                    parserNodesToTemplateNodes templateComponents children
+                    parserNodesToTemplateNodes components children
                         |> Template.Element nodeName attributes
                         |> Just
 
-                Just templateComponent ->
+                Just component ->
                     Template.ActorElement
-                        (TemplateComponent.toActor templateComponent)
+                        (Component.toActor component)
                         nodeName
                         (HtmlParser.nodeToString htmlParserNode
                             |> MD5.hex
                         )
-                        (TemplateComponent.toDefaultAttributes templateComponent
+                        (Component.toDefaultAttributes component
                             |> mergeAttributes attributes
                         )
-                        (parserNodesToTemplateNodes templateComponents children)
+                        (parserNodesToTemplateNodes components children)
                         |> Template.Actor
                         |> Just
 

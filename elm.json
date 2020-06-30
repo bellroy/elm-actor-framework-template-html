@@ -13,6 +13,8 @@
         "elm/html": "1.0.0 <= v < 2.0.0",
         "elm/parser": "1.1.0 <= v < 2.0.0",
         "hecrj/html-parser": "2.3.4 <= v < 3.0.0",
+        "tricycle/elm-actor-framework": "1.0.0 <= v < 2.0.0",
+        "tricycle/elm-actor-framework-template": "1.0.0 <= v < 2.0.0",
         "truqu/elm-md5": "1.1.0 <= v < 2.0.0"
     },
     "test-dependencies": {

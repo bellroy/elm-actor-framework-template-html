@@ -2,9 +2,7 @@
     "type": "application",
     "source-directories": [
         "src",
-        "../src",
-        "../../elm-actor-framework/src",
-        "../../elm-actor-framework-template/src"
+        "../src"
     ],
     "elm-version": "0.19.1",
     "dependencies": {
@@ -17,6 +15,8 @@
             "elm/time": "1.0.0",
             "elm/url": "1.0.0",
             "hecrj/html-parser": "2.3.4",
+            "tricycle/elm-actor-framework": "1.0.0",
+            "tricycle/elm-actor-framework-template": "1.0.0",
             "truqu/elm-md5": "1.1.0"
         },
         "indirect": {

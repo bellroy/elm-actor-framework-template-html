@@ -1,4 +1,4 @@
-![Build Status](https://github.com/tricycle/elm-actor-framework-template-html/workflows/Continuous%20Integration/badge.svg) [![Elm package](https://img.shields.io/elm-package/v/tricycle/elm-actor-framework-template-html.svg)](https://package.elm-lang.org/packages/elm-actor-framework-template-html/latest/)
+![Build Status](https://github.com/tricycle/elm-actor-framework-template-html/workflows/Continuous%20Integration/badge.svg) [![Elm package](https://img.shields.io/elm-package/v/tricycle/elm-actor-framework-template-html.svg)](https://package.elm-lang.org/packages/tricycle/elm-actor-framework-template-html/latest/)
 
 # Elm Actor Framework - Template - Html
 

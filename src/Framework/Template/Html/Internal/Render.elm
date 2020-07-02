@@ -80,21 +80,21 @@ templateNodeToHtml renderReference interpolator node =
                 (toHtmlAttributes interpolator attributes)
                 (templateNodesToListHtml renderReference interpolator children)
 
-        Actor (ActorElement _ nodeName id attributes children) ->
-            let
-                htmlAttributes =
-                    [ ( "data-x-name", nodeName )
-                    , ( "data-x-id", id )
-                    ]
-                        |> List.append attributes
-                        |> toHtmlAttributes interpolator
-            in
+        Actor (ActorElement _ nodeName id _ children) ->
             case renderReference id of
                 Just output ->
-                    Html.span htmlAttributes [ output ]
+                    output
 
                 Nothing ->
-                    Html.span
+                    let
+                        htmlAttributes =
+                            [ ( "data-x-name", nodeName )
+                            , ( "data-x-id", id )
+                            ]
+                                |> toHtmlAttributes interpolator
+                    in
+                    Html.node
+                        nodeName
                         htmlAttributes
                         (templateNodesToListHtml renderReference interpolator children)
 

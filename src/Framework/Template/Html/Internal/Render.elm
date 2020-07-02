@@ -115,5 +115,5 @@ toHtmlAttributes interpolator =
                     HtmlA.class interpolatedValue
 
                 _ ->
-                    HtmlA.attribute key value
+                    HtmlA.attribute key interpolatedValue
         )

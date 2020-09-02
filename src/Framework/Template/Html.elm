@@ -1,7 +1,7 @@
 module Framework.Template.Html exposing
     ( HtmlTemplate
     , blank, parse, fromNodes
-    , toNodes, render, renderAndInterpolate
+    , toNodes, render, renderAndInterpolate, toString
     , getActorsToSpawn
     )
 
@@ -17,7 +17,7 @@ module Framework.Template.Html exposing
 
 # Rendering
 
-@docs toNodes, render, renderAndInterpolate
+@docs toNodes, render, renderAndInterpolate, toString
 
 
 # Utility
@@ -82,6 +82,15 @@ rendering the template in question.
 toNodes : HtmlTemplate appActors -> List (Node appActors)
 toNodes =
     HtmlTemplate.toNodes
+
+
+{-| Turn a HtmlTemplate into a string
+-}
+toString : HtmlTemplate appActors -> String
+toString =
+    HtmlTemplate.toNodes
+        >> List.map Parser.nodeToString
+        >> String.join "\n"
 
 
 {-| Get the actor, reference and original complete node from a template that

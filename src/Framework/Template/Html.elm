@@ -123,8 +123,14 @@ render =
     Render.render
 
 
-{-| Render your template and interpolate any string matching your interpolation
-dictionary
+{-| Render your template and interpolate any string matching your interpolation dictionary.
+
+    renderAndInterpolate
+        Dict.empty
+        (Dict.fromList [ ( "foo", "bar" ) ])
+        (fromNodes [ Text "<p>#[foo]</p>" ])
+        temmplate
+
 -}
 renderAndInterpolate :
     Dict String Pid

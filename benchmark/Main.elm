@@ -6,7 +6,6 @@ import Framework.Template.Component as Component
 import Framework.Template.Components as Components exposing (Components)
 import Framework.Template.Html as HtmlTemplate
 
-
 main : BenchmarkProgram
 main =
     program <|

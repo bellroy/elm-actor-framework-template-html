@@ -1093,6 +1093,136 @@ var _Basics_xor = F2(function(a, b) { return a !== b; });
 
 
 
+
+// STRINGS
+
+
+var _Parser_isSubString = F5(function(smallString, offset, row, col, bigString)
+{
+	var smallLength = smallString.length;
+	var isGood = offset + smallLength <= bigString.length;
+
+	for (var i = 0; isGood && i < smallLength; )
+	{
+		var code = bigString.charCodeAt(offset);
+		isGood =
+			smallString[i++] === bigString[offset++]
+			&& (
+				code === 0x000A /* \n */
+					? ( row++, col=1 )
+					: ( col++, (code & 0xF800) === 0xD800 ? smallString[i++] === bigString[offset++] : 1 )
+			)
+	}
+
+	return _Utils_Tuple3(isGood ? offset : -1, row, col);
+});
+
+
+
+// CHARS
+
+
+var _Parser_isSubChar = F3(function(predicate, offset, string)
+{
+	return (
+		string.length <= offset
+			? -1
+			:
+		(string.charCodeAt(offset) & 0xF800) === 0xD800
+			? (predicate(_Utils_chr(string.substr(offset, 2))) ? offset + 2 : -1)
+			:
+		(predicate(_Utils_chr(string[offset]))
+			? ((string[offset] === '\n') ? -2 : (offset + 1))
+			: -1
+		)
+	);
+});
+
+
+var _Parser_isAsciiCode = F3(function(code, offset, string)
+{
+	return string.charCodeAt(offset) === code;
+});
+
+
+
+// NUMBERS
+
+
+var _Parser_chompBase10 = F2(function(offset, string)
+{
+	for (; offset < string.length; offset++)
+	{
+		var code = string.charCodeAt(offset);
+		if (code < 0x30 || 0x39 < code)
+		{
+			return offset;
+		}
+	}
+	return offset;
+});
+
+
+var _Parser_consumeBase = F3(function(base, offset, string)
+{
+	for (var total = 0; offset < string.length; offset++)
+	{
+		var digit = string.charCodeAt(offset) - 0x30;
+		if (digit < 0 || base <= digit) break;
+		total = base * total + digit;
+	}
+	return _Utils_Tuple2(offset, total);
+});
+
+
+var _Parser_consumeBase16 = F2(function(offset, string)
+{
+	for (var total = 0; offset < string.length; offset++)
+	{
+		var code = string.charCodeAt(offset);
+		if (0x30 <= code && code <= 0x39)
+		{
+			total = 16 * total + code - 0x30;
+		}
+		else if (0x41 <= code && code <= 0x46)
+		{
+			total = 16 * total + code - 55;
+		}
+		else if (0x61 <= code && code <= 0x66)
+		{
+			total = 16 * total + code - 87;
+		}
+		else
+		{
+			break;
+		}
+	}
+	return _Utils_Tuple2(offset, total);
+});
+
+
+
+// FIND STRING
+
+
+var _Parser_findSubString = F5(function(smallString, offset, row, col, bigString)
+{
+	var newOffset = bigString.indexOf(smallString, offset);
+	var target = newOffset < 0 ? bigString.length : newOffset + smallString.length;
+
+	while (offset < target)
+	{
+		var code = bigString.charCodeAt(offset++);
+		code === 0x000A /* \n */
+			? ( col=1, row++ )
+			: ( col++, (code & 0xF800) === 0xD800 && offset++ )
+	}
+
+	return _Utils_Tuple3(newOffset, row, col);
+});
+
+
+
 var _String_cons = F2(function(chr, str)
 {
 	return chr + str;
@@ -1402,136 +1532,6 @@ function _String_fromList(chars)
 	return _List_toArray(chars).join('');
 }
 
-
-
-
-
-// STRINGS
-
-
-var _Parser_isSubString = F5(function(smallString, offset, row, col, bigString)
-{
-	var smallLength = smallString.length;
-	var isGood = offset + smallLength <= bigString.length;
-
-	for (var i = 0; isGood && i < smallLength; )
-	{
-		var code = bigString.charCodeAt(offset);
-		isGood =
-			smallString[i++] === bigString[offset++]
-			&& (
-				code === 0x000A /* \n */
-					? ( row++, col=1 )
-					: ( col++, (code & 0xF800) === 0xD800 ? smallString[i++] === bigString[offset++] : 1 )
-			)
-	}
-
-	return _Utils_Tuple3(isGood ? offset : -1, row, col);
-});
-
-
-
-// CHARS
-
-
-var _Parser_isSubChar = F3(function(predicate, offset, string)
-{
-	return (
-		string.length <= offset
-			? -1
-			:
-		(string.charCodeAt(offset) & 0xF800) === 0xD800
-			? (predicate(_Utils_chr(string.substr(offset, 2))) ? offset + 2 : -1)
-			:
-		(predicate(_Utils_chr(string[offset]))
-			? ((string[offset] === '\n') ? -2 : (offset + 1))
-			: -1
-		)
-	);
-});
-
-
-var _Parser_isAsciiCode = F3(function(code, offset, string)
-{
-	return string.charCodeAt(offset) === code;
-});
-
-
-
-// NUMBERS
-
-
-var _Parser_chompBase10 = F2(function(offset, string)
-{
-	for (; offset < string.length; offset++)
-	{
-		var code = string.charCodeAt(offset);
-		if (code < 0x30 || 0x39 < code)
-		{
-			return offset;
-		}
-	}
-	return offset;
-});
-
-
-var _Parser_consumeBase = F3(function(base, offset, string)
-{
-	for (var total = 0; offset < string.length; offset++)
-	{
-		var digit = string.charCodeAt(offset) - 0x30;
-		if (digit < 0 || base <= digit) break;
-		total = base * total + digit;
-	}
-	return _Utils_Tuple2(offset, total);
-});
-
-
-var _Parser_consumeBase16 = F2(function(offset, string)
-{
-	for (var total = 0; offset < string.length; offset++)
-	{
-		var code = string.charCodeAt(offset);
-		if (0x30 <= code && code <= 0x39)
-		{
-			total = 16 * total + code - 0x30;
-		}
-		else if (0x41 <= code && code <= 0x46)
-		{
-			total = 16 * total + code - 55;
-		}
-		else if (0x61 <= code && code <= 0x66)
-		{
-			total = 16 * total + code - 87;
-		}
-		else
-		{
-			break;
-		}
-	}
-	return _Utils_Tuple2(offset, total);
-});
-
-
-
-// FIND STRING
-
-
-var _Parser_findSubString = F5(function(smallString, offset, row, col, bigString)
-{
-	var newOffset = bigString.indexOf(smallString, offset);
-	var target = newOffset < 0 ? bigString.length : newOffset + smallString.length;
-
-	while (offset < target)
-	{
-		var code = bigString.charCodeAt(offset++);
-		code === 0x000A /* \n */
-			? ( col=1, row++ )
-			: ( col++, (code & 0xF800) === 0xD800 && offset++ )
-	}
-
-	return _Utils_Tuple3(newOffset, row, col);
-});
 
 
 
@@ -5284,47 +5284,6 @@ var $author$project$Main$components = $tricycle$elm_actor_framework_template$Fra
 			$tricycle$elm_actor_framework_template$Framework$Template$Component$make(
 				{actor: $author$project$Main$SomeComponentZ, nodeName: 'some-component-z'}))
 		]));
-var $elm$core$Maybe$Just = function (a) {
-	return {$: 'Just', a: a};
-};
-var $elm$core$Maybe$Nothing = {$: 'Nothing'};
-var $elm$core$String$join = F2(
-	function (sep, chunks) {
-		return A2(
-			_String_join,
-			sep,
-			_List_toArray(chunks));
-	});
-var $elm$core$Basics$le = _Utils_le;
-var $elm$core$Basics$sub = _Basics_sub;
-var $elm$core$List$repeatHelp = F3(
-	function (result, n, value) {
-		repeatHelp:
-		while (true) {
-			if (n <= 0) {
-				return result;
-			} else {
-				var $temp$result = A2($elm$core$List$cons, value, result),
-					$temp$n = n - 1,
-					$temp$value = value;
-				result = $temp$result;
-				n = $temp$n;
-				value = $temp$value;
-				continue repeatHelp;
-			}
-		}
-	});
-var $elm$core$List$repeat = F2(
-	function (n, value) {
-		return A3($elm$core$List$repeatHelp, _List_Nil, n, value);
-	});
-var $author$project$Main$dup = F2(
-	function (times, str) {
-		return A2(
-			$elm$core$String$join,
-			'\n',
-			A2($elm$core$List$repeat, times, str));
-	});
 var $elm$core$Result$Ok = function (a) {
 	return {$: 'Ok', a: a};
 };
@@ -5366,6 +5325,9 @@ var $elm$core$Result$mapError = F2(
 		}
 	});
 var $elm$core$Basics$False = {$: 'False'};
+var $elm$core$Maybe$Just = function (a) {
+	return {$: 'Just', a: a};
+};
 var $elm$core$Basics$True = {$: 'True'};
 var $elm$parser$Parser$Advanced$Bad = F2(
 	function (a, b) {
@@ -5566,6 +5528,7 @@ var $author$project$Framework$Template$Html$Internal$Parser$chompOneOrMore = fun
 		$elm$parser$Parser$chompIf(fn),
 		$elm$parser$Parser$chompWhile(fn));
 };
+var $elm$core$Maybe$Nothing = {$: 'Nothing'};
 var $elm$core$String$slice = _String_slice;
 var $elm$parser$Parser$Advanced$mapChompedString = F2(
 	function (func, _v0) {
@@ -5886,6 +5849,7 @@ var $elm$core$Basics$max = F2(
 		return (_Utils_cmp(x, y) > 0) ? x : y;
 	});
 var $elm$core$Basics$mul = _Basics_mul;
+var $elm$core$Basics$sub = _Basics_sub;
 var $elm$core$Array$SubTree = function (a) {
 	return {$: 'SubTree', a: a};
 };
@@ -5982,6 +5946,7 @@ var $elm$core$Array$initializeHelp = F5(
 			}
 		}
 	});
+var $elm$core$Basics$le = _Utils_le;
 var $elm$core$Basics$remainderBy = _Basics_remainderBy;
 var $elm$core$Array$initialize = F2(
 	function (len, fn) {
@@ -6504,6 +6469,13 @@ var $truqu$elm_md5$MD5$hex = function (s) {
 		'',
 		$truqu$elm_md5$MD5$bytes(s));
 };
+var $elm$core$String$join = F2(
+	function (sep, chunks) {
+		return A2(
+			_String_join,
+			sep,
+			_List_toArray(chunks));
+	});
 var $elm$core$String$concat = function (strings) {
 	return A2($elm$core$String$join, '', strings);
 };
@@ -7703,42 +7675,6 @@ var $author$project$Main$parse = A2(
 			'simple template',
 			function (_v0) {
 				return A2($author$project$Framework$Template$Html$parse, $author$project$Main$components, $author$project$Main$simpleTemplate);
-			}),
-			A2(
-			$elm_explorations$benchmark$Benchmark$benchmark,
-			'simple template x 2',
-			function (_v1) {
-				return A2(
-					$author$project$Framework$Template$Html$parse,
-					$author$project$Main$components,
-					A2($author$project$Main$dup, 2, $author$project$Main$simpleTemplate));
-			}),
-			A2(
-			$elm_explorations$benchmark$Benchmark$benchmark,
-			'simple template x 4',
-			function (_v2) {
-				return A2(
-					$author$project$Framework$Template$Html$parse,
-					$author$project$Main$components,
-					A2($author$project$Main$dup, 4, $author$project$Main$simpleTemplate));
-			}),
-			A2(
-			$elm_explorations$benchmark$Benchmark$benchmark,
-			'simple template x 10',
-			function (_v3) {
-				return A2(
-					$author$project$Framework$Template$Html$parse,
-					$author$project$Main$components,
-					A2($author$project$Main$dup, 50, $author$project$Main$simpleTemplate));
-			}),
-			A2(
-			$elm_explorations$benchmark$Benchmark$benchmark,
-			'simple template x 50',
-			function (_v4) {
-				return A2(
-					$author$project$Framework$Template$Html$parse,
-					$author$project$Main$components,
-					A2($author$project$Main$dup, 50, $author$project$Main$simpleTemplate));
 			})
 		]));
 var $elm$json$Json$Decode$Failure = F2(
@@ -9010,6 +8946,27 @@ var $elm$core$List$minimum = function (list) {
 		return $elm$core$Maybe$Nothing;
 	}
 };
+var $elm$core$List$repeatHelp = F3(
+	function (result, n, value) {
+		repeatHelp:
+		while (true) {
+			if (n <= 0) {
+				return result;
+			} else {
+				var $temp$result = A2($elm$core$List$cons, value, result),
+					$temp$n = n - 1,
+					$temp$value = value;
+				result = $temp$result;
+				n = $temp$n;
+				value = $temp$value;
+				continue repeatHelp;
+			}
+		}
+	});
+var $elm$core$List$repeat = F2(
+	function (n, value) {
+		return A3($elm$core$List$repeatHelp, _List_Nil, n, value);
+	});
 var $elm_explorations$benchmark$Benchmark$LowLevel$sample = F2(
 	function (n, operation_) {
 		return A2(_Benchmark_sample, n, operation_);

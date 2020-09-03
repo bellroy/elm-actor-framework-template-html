@@ -1,7 +1,7 @@
 module Framework.Template.Html exposing
     ( HtmlTemplate
     , blank, parse, fromNodes
-    , toNodes, render, renderAndInterpolate
+    , toNodes, render, renderAndInterpolate, toString
     , getActorsToSpawn
     )
 
@@ -17,7 +17,7 @@ module Framework.Template.Html exposing
 
 # Rendering
 
-@docs toNodes, render, renderAndInterpolate
+@docs toNodes, render, renderAndInterpolate, toString
 
 
 # Utility
@@ -84,6 +84,15 @@ toNodes =
     HtmlTemplate.toNodes
 
 
+{-| Turn a HtmlTemplate into a string
+-}
+toString : HtmlTemplate appActors -> String
+toString =
+    HtmlTemplate.toNodes
+        >> List.map Parser.nodeToString
+        >> String.join "\n"
+
+
 {-| Get the actor, reference and original complete node from a template that
 are meant to be spawned.
 
@@ -114,8 +123,14 @@ render =
     Render.render
 
 
-{-| Render your template and interpolate any string matching your interpolation
-dictionary
+{-| Render your template and interpolate any string matching your interpolation dictionary.
+
+    renderAndInterpolate
+        Dict.empty
+        (Dict.fromList [ ( "foo", "bar" ) ])
+        (fromNodes [ Text "<p>#[foo]</p>" ])
+        temmplate
+
 -}
 renderAndInterpolate :
     Dict String Pid

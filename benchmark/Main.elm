@@ -6,7 +6,6 @@ import Framework.Template.Component as Component
 import Framework.Template.Components as Components exposing (Components)
 import Framework.Template.Html as HtmlTemplate
 
-
 main : BenchmarkProgram
 main =
     program <|
@@ -20,21 +19,7 @@ parse =
     Benchmark.describe "parse"
         [ Benchmark.benchmark "simple template"
             (\_ -> HtmlTemplate.parse components simpleTemplate)
-
-        -- , Benchmark.benchmark "simple template x 2"
-        --     (\_ -> HtmlTemplate.parse components (dup 2 simpleTemplate))
-        -- , Benchmark.benchmark "simple template x 4"
-        --     (\_ -> HtmlTemplate.parse components (dup 4 simpleTemplate))
-        -- , Benchmark.benchmark "simple template x 10"
-        --     (\_ -> HtmlTemplate.parse components (dup 50 simpleTemplate))
-        -- , Benchmark.benchmark "simple template x 50"
-        --     (\_ -> HtmlTemplate.parse components (dup 50 simpleTemplate))
         ]
-
-
-dup : Int -> String -> String
-dup times str =
-    List.repeat times str |> String.join "\n"
 
 
 simpleTemplate : String

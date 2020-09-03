@@ -16,7 +16,6 @@
             "elm/time": "1.0.0",
             "elm-community/list-extra": "8.0.0",
             "elm-explorations/benchmark": "1.0.1",
-            "hecrj/html-parser": "2.4.0",
             "mdgriffith/style-elements": "5.0.0",
             "rtfeldman/elm-hex": "1.0.0",
             "tricycle/elm-actor-framework": "1.3.0",

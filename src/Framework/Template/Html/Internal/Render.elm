@@ -6,6 +6,7 @@ import Framework.Template exposing (ActorElement(..), Node(..))
 import Framework.Template.Html.Internal.HtmlTemplate as HtmlTemplate exposing (HtmlTemplate)
 import Html exposing (Html)
 import Html.Attributes as HtmlA
+import Regex exposing (Match, Regex)
 
 
 render :
@@ -30,7 +31,7 @@ renderAndInterpolate instances interpolateData renderPid htmlTemplate =
     in
     templateNodesToListHtml
         (makeRenderReference instances renderPid)
-        (makeInterpolator interpolateData)
+        (interpolateWithDict interpolateData)
         nodes
 
 
@@ -42,17 +43,6 @@ makeRenderReference :
 makeRenderReference instances renderPid reference =
     Dict.get reference instances
         |> Maybe.andThen renderPid
-
-
-makeInterpolator :
-    Dict String String
-    -> String
-    -> String
-makeInterpolator data string =
-    List.foldl
-        (\( key, value ) -> String.replace key value)
-        string
-        (Dict.toList data)
 
 
 templateNodesToListHtml :
@@ -117,3 +107,31 @@ toHtmlAttributes interpolator =
                 _ ->
                     HtmlA.attribute key interpolatedValue
         )
+
+
+
+--- Interpolate
+
+
+interpolateWithDict : Dict String String -> String -> String
+interpolateWithDict dict string =
+    Regex.replace
+        dictInterpolationRegex
+        (applyDictInterpolation dict)
+        string
+
+
+dictInterpolationRegex : Regex
+dictInterpolationRegex =
+    Regex.fromString "#\\[[\\w.-]+\\]"
+        |> Maybe.withDefault Regex.never
+
+
+applyDictInterpolation : Dict String String -> Match -> String
+applyDictInterpolation replacements { match } =
+    let
+        ordinalString =
+            (String.dropLeft 2 << String.dropRight 1) match
+    in
+    Dict.get ordinalString replacements
+        |> Maybe.withDefault ordinalString

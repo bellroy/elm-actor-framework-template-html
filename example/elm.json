@@ -15,13 +15,13 @@
             "elm/time": "1.0.0",
             "elm/url": "1.0.0",
             "hecrj/html-parser": "2.3.4",
+            "rtfeldman/elm-hex": "1.0.0",
             "tricycle/elm-actor-framework": "1.0.0",
             "tricycle/elm-actor-framework-template": "1.0.0",
             "truqu/elm-md5": "1.1.0"
         },
         "indirect": {
             "elm/virtual-dom": "1.0.2",
-            "rtfeldman/elm-hex": "1.0.0",
             "zwilias/elm-utf-tools": "2.0.1"
         }
     },

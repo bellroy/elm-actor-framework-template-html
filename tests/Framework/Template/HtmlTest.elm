@@ -45,7 +45,8 @@ template : TemplateHtml.HtmlTemplate String
 template =
     [ Element "span"
         [ ( "class", "welcome" ) ]
-        [ Text "Hello World >"
+        [ Text "Hello &amp; World &gt; "
+        , Element "span" [] [ Text "child" ]
         ]
     , Text "#[foo]"
     , Actor actorElement
@@ -59,7 +60,7 @@ test_toString =
         [ test "template 1" <|
             \_ ->
                 TemplateHtml.toString template
-                    |> Expect.equal "<span class=\"welcome\">Hello World ></span>\n#[foo]\n<some-actor class=\"ClassName\" foo=\"#[foo]\"></some-actor>"
+                    |> Expect.equal "<span class=\"welcome\">Hello &amp; World &gt; <span>child</span></span>\n#[foo]\n<some-actor class=\"ClassName\" foo=\"#[foo]\"></some-actor>"
         ]
 
 

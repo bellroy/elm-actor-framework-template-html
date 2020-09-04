@@ -78,11 +78,15 @@ text =
         |> oneOrMore "text element"
         |> Parser.map
             (\rawStr ->
-                case String.join "" rawStr |> String.trim of
+                let
+                    str =
+                        String.join "" rawStr
+                in
+                case String.trim str of
                     "" ->
                         Nothing
 
-                    str ->
+                    _ ->
                         Just <| Text str
             )
 
@@ -118,10 +122,10 @@ namedCharacterReference =
                         "&"
 
                     "gt" ->
-                        "<"
+                        ">"
 
                     "lt" ->
-                        ">"
+                        "<"
 
                     _ ->
                         "&" ++ reference ++ ";"

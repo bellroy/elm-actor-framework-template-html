@@ -30,14 +30,14 @@ test_parse =
 
                     input =
                         """<!-- template example -->
-                    <span class="welcome">Hello World</span>
+                    <span class="welcome">Hello World ></span>
                     <some-actor data-foo="bar"></some-actor>
                     """
 
                     output =
                         [ Element "span"
                             [ ( "class", "welcome" ) ]
-                            [ Text "Hello World"
+                            [ Text "Hello World >"
                             ]
                         , ActorElement "someActor"
                             "some-actor"

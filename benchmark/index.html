@@ -4819,10 +4819,10 @@ var $elm$core$Basics$composeR = F3(
 var $elm$core$Basics$identity = function (x) {
 	return x;
 };
-var $tricycle$elm_actor_framework_template$Framework$Template$Internal$Components$Components = function (a) {
+var $bellroy$elm_actor_framework_template$Framework$Template$Internal$Components$Components = function (a) {
 	return {$: 'Components', a: a};
 };
-var $tricycle$elm_actor_framework_template$Framework$Template$Internal$Components$fromDict = $tricycle$elm_actor_framework_template$Framework$Template$Internal$Components$Components;
+var $bellroy$elm_actor_framework_template$Framework$Template$Internal$Components$fromDict = $bellroy$elm_actor_framework_template$Framework$Template$Internal$Components$Components;
 var $elm$core$Dict$RBEmpty_elm_builtin = {$: 'RBEmpty_elm_builtin'};
 var $elm$core$Dict$empty = $elm$core$Dict$RBEmpty_elm_builtin;
 var $elm$core$List$foldl = F3(
@@ -5039,249 +5039,249 @@ var $elm$core$List$map = F2(
 			_List_Nil,
 			xs);
 	});
-var $tricycle$elm_actor_framework_template$Framework$Template$Internal$Component$toNodeName = function (_v0) {
+var $bellroy$elm_actor_framework_template$Framework$Template$Internal$Component$toNodeName = function (_v0) {
 	var nodeName = _v0.a.nodeName;
 	return nodeName;
 };
-var $tricycle$elm_actor_framework_template$Framework$Template$Internal$Components$fromList = A2(
+var $bellroy$elm_actor_framework_template$Framework$Template$Internal$Components$fromList = A2(
 	$elm$core$Basics$composeR,
 	$elm$core$List$map(
 		function (component) {
 			return _Utils_Tuple2(
-				$tricycle$elm_actor_framework_template$Framework$Template$Internal$Component$toNodeName(component),
+				$bellroy$elm_actor_framework_template$Framework$Template$Internal$Component$toNodeName(component),
 				component);
 		}),
-	A2($elm$core$Basics$composeR, $elm$core$Dict$fromList, $tricycle$elm_actor_framework_template$Framework$Template$Internal$Components$fromDict));
-var $tricycle$elm_actor_framework_template$Framework$Template$Components$fromList = $tricycle$elm_actor_framework_template$Framework$Template$Internal$Components$fromList;
-var $tricycle$elm_actor_framework_template$Framework$Template$Internal$Component$Component = function (a) {
+	A2($elm$core$Basics$composeR, $elm$core$Dict$fromList, $bellroy$elm_actor_framework_template$Framework$Template$Internal$Components$fromDict));
+var $bellroy$elm_actor_framework_template$Framework$Template$Components$fromList = $bellroy$elm_actor_framework_template$Framework$Template$Internal$Components$fromList;
+var $bellroy$elm_actor_framework_template$Framework$Template$Internal$Component$Component = function (a) {
 	return {$: 'Component', a: a};
 };
-var $tricycle$elm_actor_framework_template$Framework$Template$Internal$Component$make = function (_v0) {
+var $bellroy$elm_actor_framework_template$Framework$Template$Internal$Component$make = function (_v0) {
 	var nodeName = _v0.nodeName;
 	var actor = _v0.actor;
-	return $tricycle$elm_actor_framework_template$Framework$Template$Internal$Component$Component(
+	return $bellroy$elm_actor_framework_template$Framework$Template$Internal$Component$Component(
 		{actor: actor, defaultAttributes: _List_Nil, nodeName: nodeName});
 };
-var $tricycle$elm_actor_framework_template$Framework$Template$Component$make = $tricycle$elm_actor_framework_template$Framework$Template$Internal$Component$make;
-var $tricycle$elm_actor_framework_template$Framework$Template$Internal$Component$setDefaultAttributes = F2(
+var $bellroy$elm_actor_framework_template$Framework$Template$Component$make = $bellroy$elm_actor_framework_template$Framework$Template$Internal$Component$make;
+var $bellroy$elm_actor_framework_template$Framework$Template$Internal$Component$setDefaultAttributes = F2(
 	function (defaultAttributes, _v0) {
 		var r = _v0.a;
-		return $tricycle$elm_actor_framework_template$Framework$Template$Internal$Component$Component(
+		return $bellroy$elm_actor_framework_template$Framework$Template$Internal$Component$Component(
 			_Utils_update(
 				r,
 				{defaultAttributes: defaultAttributes}));
 	});
-var $tricycle$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes = $tricycle$elm_actor_framework_template$Framework$Template$Internal$Component$setDefaultAttributes;
-var $author$project$Main$components = $tricycle$elm_actor_framework_template$Framework$Template$Components$fromList(
+var $bellroy$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes = $bellroy$elm_actor_framework_template$Framework$Template$Internal$Component$setDefaultAttributes;
+var $author$project$Main$components = $bellroy$elm_actor_framework_template$Framework$Template$Components$fromList(
 	_List_fromArray(
 		[
 			A2(
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
 			_List_fromArray(
 				[
 					_Utils_Tuple2('data-foo', 'bar')
 				]),
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$make(
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$make(
 				{actor: $author$project$Main$SomeComponent, nodeName: 'some-component'})),
 			A2(
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
 			_List_fromArray(
 				[
 					_Utils_Tuple2('data-bar', 'foo')
 				]),
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$make(
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$make(
 				{actor: $author$project$Main$SomeComponentB, nodeName: 'some-component-b'})),
 			A2(
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
 			_List_fromArray(
 				[
 					_Utils_Tuple2('data-bar', 'foo')
 				]),
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$make(
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$make(
 				{actor: $author$project$Main$SomeComponentC, nodeName: 'some-component-c'})),
 			A2(
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
 			_List_fromArray(
 				[
 					_Utils_Tuple2('data-bar', 'foo')
 				]),
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$make(
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$make(
 				{actor: $author$project$Main$SomeComponentD, nodeName: 'some-component-d'})),
 			A2(
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
 			_List_fromArray(
 				[
 					_Utils_Tuple2('data-bar', 'foo')
 				]),
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$make(
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$make(
 				{actor: $author$project$Main$SomeComponentE, nodeName: 'some-component-e'})),
 			A2(
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
 			_List_fromArray(
 				[
 					_Utils_Tuple2('data-bar', 'foo')
 				]),
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$make(
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$make(
 				{actor: $author$project$Main$SomeComponentF, nodeName: 'some-component-f'})),
 			A2(
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
 			_List_fromArray(
 				[
 					_Utils_Tuple2('data-bar', 'foo')
 				]),
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$make(
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$make(
 				{actor: $author$project$Main$SomeComponentG, nodeName: 'some-component-g'})),
 			A2(
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
 			_List_fromArray(
 				[
 					_Utils_Tuple2('data-bar', 'foo')
 				]),
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$make(
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$make(
 				{actor: $author$project$Main$SomeComponentH, nodeName: 'some-component-H'})),
 			A2(
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
 			_List_fromArray(
 				[
 					_Utils_Tuple2('data-bar', 'foo')
 				]),
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$make(
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$make(
 				{actor: $author$project$Main$SomeComponentI, nodeName: 'some-component-i'})),
 			A2(
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
 			_List_fromArray(
 				[
 					_Utils_Tuple2('data-bar', 'foo')
 				]),
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$make(
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$make(
 				{actor: $author$project$Main$SomeComponentJ, nodeName: 'some-component-j'})),
 			A2(
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
 			_List_fromArray(
 				[
 					_Utils_Tuple2('data-bar', 'foo')
 				]),
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$make(
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$make(
 				{actor: $author$project$Main$SomeComponentK, nodeName: 'some-component-k'})),
 			A2(
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
 			_List_fromArray(
 				[
 					_Utils_Tuple2('data-bar', 'foo')
 				]),
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$make(
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$make(
 				{actor: $author$project$Main$SomeComponentL, nodeName: 'some-component-l'})),
 			A2(
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
 			_List_fromArray(
 				[
 					_Utils_Tuple2('data-bar', 'foo')
 				]),
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$make(
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$make(
 				{actor: $author$project$Main$SomeComponentM, nodeName: 'some-component-m'})),
 			A2(
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
 			_List_fromArray(
 				[
 					_Utils_Tuple2('data-bar', 'foo')
 				]),
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$make(
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$make(
 				{actor: $author$project$Main$SomeComponentN, nodeName: 'some-component-n'})),
 			A2(
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
 			_List_fromArray(
 				[
 					_Utils_Tuple2('data-bar', 'foo')
 				]),
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$make(
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$make(
 				{actor: $author$project$Main$SomeComponentO, nodeName: 'some-component-o'})),
 			A2(
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
 			_List_fromArray(
 				[
 					_Utils_Tuple2('data-bar', 'foo')
 				]),
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$make(
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$make(
 				{actor: $author$project$Main$SomeComponentP, nodeName: 'some-component-p'})),
 			A2(
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
 			_List_fromArray(
 				[
 					_Utils_Tuple2('data-bar', 'foo')
 				]),
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$make(
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$make(
 				{actor: $author$project$Main$SomeComponentQ, nodeName: 'some-component-q'})),
 			A2(
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
 			_List_fromArray(
 				[
 					_Utils_Tuple2('data-bar', 'foo')
 				]),
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$make(
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$make(
 				{actor: $author$project$Main$SomeComponentR, nodeName: 'some-component-r'})),
 			A2(
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
 			_List_fromArray(
 				[
 					_Utils_Tuple2('data-bar', 'foo')
 				]),
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$make(
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$make(
 				{actor: $author$project$Main$SomeComponentS, nodeName: 'some-component-S'})),
 			A2(
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
 			_List_fromArray(
 				[
 					_Utils_Tuple2('data-bar', 'foo')
 				]),
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$make(
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$make(
 				{actor: $author$project$Main$SomeComponentT, nodeName: 'some-component-t'})),
 			A2(
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
 			_List_fromArray(
 				[
 					_Utils_Tuple2('data-bar', 'foo')
 				]),
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$make(
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$make(
 				{actor: $author$project$Main$SomeComponentU, nodeName: 'some-component-u'})),
 			A2(
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
 			_List_fromArray(
 				[
 					_Utils_Tuple2('data-bar', 'foo')
 				]),
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$make(
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$make(
 				{actor: $author$project$Main$SomeComponentV, nodeName: 'some-component-v'})),
 			A2(
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
 			_List_fromArray(
 				[
 					_Utils_Tuple2('data-bar', 'foo')
 				]),
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$make(
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$make(
 				{actor: $author$project$Main$SomeComponentW, nodeName: 'some-component-W'})),
 			A2(
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
 			_List_fromArray(
 				[
 					_Utils_Tuple2('data-bar', 'foo')
 				]),
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$make(
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$make(
 				{actor: $author$project$Main$SomeComponentX, nodeName: 'some-component-x'})),
 			A2(
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
 			_List_fromArray(
 				[
 					_Utils_Tuple2('data-bar', 'foo')
 				]),
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$make(
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$make(
 				{actor: $author$project$Main$SomeComponentY, nodeName: 'some-component-y'})),
 			A2(
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
 			_List_fromArray(
 				[
 					_Utils_Tuple2('data-bar', 'foo')
 				]),
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$make(
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$make(
 				{actor: $author$project$Main$SomeComponentZ, nodeName: 'some-component-z'}))
 		]));
 var $elm$core$Result$Ok = function (a) {
@@ -5768,14 +5768,14 @@ var $elm$core$Basics$composeL = F3(
 		return g(
 			f(x));
 	});
-var $tricycle$elm_actor_framework_template$Framework$Template$Actor = function (a) {
+var $bellroy$elm_actor_framework_template$Framework$Template$Actor = function (a) {
 	return {$: 'Actor', a: a};
 };
-var $tricycle$elm_actor_framework_template$Framework$Template$ActorElement = F5(
+var $bellroy$elm_actor_framework_template$Framework$Template$ActorElement = F5(
 	function (a, b, c, d, e) {
 		return {$: 'ActorElement', a: a, b: b, c: c, d: d, e: e};
 	});
-var $tricycle$elm_actor_framework_template$Framework$Template$Element = F3(
+var $bellroy$elm_actor_framework_template$Framework$Template$Element = F3(
 	function (a, b, c) {
 		return {$: 'Element', a: a, b: b, c: c};
 	});
@@ -5810,17 +5810,17 @@ var $elm$core$Dict$get = F2(
 			}
 		}
 	});
-var $tricycle$elm_actor_framework_template$Framework$Template$Internal$Components$toDict = function (_v0) {
+var $bellroy$elm_actor_framework_template$Framework$Template$Internal$Components$toDict = function (_v0) {
 	var dict = _v0.a;
 	return dict;
 };
-var $tricycle$elm_actor_framework_template$Framework$Template$Internal$Components$get = function (query) {
+var $bellroy$elm_actor_framework_template$Framework$Template$Internal$Components$get = function (query) {
 	return A2(
 		$elm$core$Basics$composeR,
-		$tricycle$elm_actor_framework_template$Framework$Template$Internal$Components$toDict,
+		$bellroy$elm_actor_framework_template$Framework$Template$Internal$Components$toDict,
 		$elm$core$Dict$get(query));
 };
-var $tricycle$elm_actor_framework_template$Framework$Template$Components$getByNodeName = $tricycle$elm_actor_framework_template$Framework$Template$Internal$Components$get;
+var $bellroy$elm_actor_framework_template$Framework$Template$Components$getByNodeName = $bellroy$elm_actor_framework_template$Framework$Template$Internal$Components$get;
 var $elm$core$Bitwise$and = _Bitwise_and;
 var $elm$core$Array$branchFactor = 32;
 var $elm$core$Array$Array_elm_builtin = F4(
@@ -6550,16 +6550,16 @@ var $author$project$Framework$Template$Html$Internal$Parser$nodeToString = funct
 			return A3($author$project$Framework$Template$Html$Internal$Parser$elementToString, name, attributes, children);
 	}
 };
-var $tricycle$elm_actor_framework_template$Framework$Template$Internal$Component$toActor = function (_v0) {
+var $bellroy$elm_actor_framework_template$Framework$Template$Internal$Component$toActor = function (_v0) {
 	var actor = _v0.a.actor;
 	return actor;
 };
-var $tricycle$elm_actor_framework_template$Framework$Template$Component$toActor = $tricycle$elm_actor_framework_template$Framework$Template$Internal$Component$toActor;
-var $tricycle$elm_actor_framework_template$Framework$Template$Internal$Component$toDefaultAttributes = function (_v0) {
+var $bellroy$elm_actor_framework_template$Framework$Template$Component$toActor = $bellroy$elm_actor_framework_template$Framework$Template$Internal$Component$toActor;
+var $bellroy$elm_actor_framework_template$Framework$Template$Internal$Component$toDefaultAttributes = function (_v0) {
 	var defaultAttributes = _v0.a.defaultAttributes;
 	return defaultAttributes;
 };
-var $tricycle$elm_actor_framework_template$Framework$Template$Component$toDefaultAttributes = $tricycle$elm_actor_framework_template$Framework$Template$Internal$Component$toDefaultAttributes;
+var $bellroy$elm_actor_framework_template$Framework$Template$Component$toDefaultAttributes = $bellroy$elm_actor_framework_template$Framework$Template$Internal$Component$toDefaultAttributes;
 var $elm$core$Dict$foldl = F3(
 	function (func, acc, dict) {
 		foldl:
@@ -6591,7 +6591,7 @@ var $elm$core$Dict$union = F2(
 	});
 var $author$project$Framework$Template$Html$Internal$Parser$elementOrActorElement = F4(
 	function (components, name, attributes, children) {
-		var _v0 = A2($tricycle$elm_actor_framework_template$Framework$Template$Components$getByNodeName, name, components);
+		var _v0 = A2($bellroy$elm_actor_framework_template$Framework$Template$Components$getByNodeName, name, components);
 		if (_v0.$ === 'Just') {
 			var component = _v0.a;
 			var mergeAttributes = F2(
@@ -6605,15 +6605,15 @@ var $author$project$Framework$Template$Html$Internal$Parser$elementOrActorElemen
 			var mergedAttributes = A2(
 				mergeAttributes,
 				attributes,
-				$tricycle$elm_actor_framework_template$Framework$Template$Component$toDefaultAttributes(component));
+				$bellroy$elm_actor_framework_template$Framework$Template$Component$toDefaultAttributes(component));
 			var id = $truqu$elm_md5$MD5$hex(
 				$author$project$Framework$Template$Html$Internal$Parser$nodeToString(
-					A3($tricycle$elm_actor_framework_template$Framework$Template$Element, name, attributes, children)));
-			var actor = $tricycle$elm_actor_framework_template$Framework$Template$Component$toActor(component);
-			return $tricycle$elm_actor_framework_template$Framework$Template$Actor(
-				A5($tricycle$elm_actor_framework_template$Framework$Template$ActorElement, actor, name, id, mergedAttributes, children));
+					A3($bellroy$elm_actor_framework_template$Framework$Template$Element, name, attributes, children)));
+			var actor = $bellroy$elm_actor_framework_template$Framework$Template$Component$toActor(component);
+			return $bellroy$elm_actor_framework_template$Framework$Template$Actor(
+				A5($bellroy$elm_actor_framework_template$Framework$Template$ActorElement, actor, name, id, mergedAttributes, children));
 		} else {
-			return A3($tricycle$elm_actor_framework_template$Framework$Template$Element, name, attributes, children);
+			return A3($bellroy$elm_actor_framework_template$Framework$Template$Element, name, attributes, children);
 		}
 	});
 var $elm$parser$Parser$Done = function (a) {
@@ -7461,7 +7461,7 @@ var $author$project$Framework$Template$Html$Internal$Parser$tagName = A2(
 						return $elm$core$Char$isAlphaNum(c);
 					}
 				}))));
-var $tricycle$elm_actor_framework_template$Framework$Template$Text = function (a) {
+var $bellroy$elm_actor_framework_template$Framework$Template$Text = function (a) {
 	return {$: 'Text', a: a};
 };
 var $elm$core$String$trim = _String_trim;
@@ -7475,7 +7475,7 @@ var $author$project$Framework$Template$Html$Internal$Parser$text = A2(
 		} else {
 			var str = _v1;
 			return $elm$core$Maybe$Just(
-				$tricycle$elm_actor_framework_template$Framework$Template$Text(str));
+				$bellroy$elm_actor_framework_template$Framework$Template$Text(str));
 		}
 	},
 	A2(

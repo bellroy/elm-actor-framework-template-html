@@ -4626,7 +4626,7 @@ var $elm$core$Maybe$Just = function (a) {
 	return {$: 'Just', a: a};
 };
 var $elm$core$Maybe$Nothing = {$: 'Nothing'};
-var $tricycle$elm_actor_framework$Framework$Internal$Actor$altInit = F2(
+var $bellroy$elm_actor_framework$Framework$Internal$Actor$altInit = F2(
 	function (f, _v0) {
 		var init = _v0.init;
 		var update = _v0.update;
@@ -4639,7 +4639,7 @@ var $tricycle$elm_actor_framework$Framework$Internal$Actor$altInit = F2(
 			view: view
 		};
 	});
-var $tricycle$elm_actor_framework$Framework$Actor$altInit = $tricycle$elm_actor_framework$Framework$Internal$Actor$altInit;
+var $bellroy$elm_actor_framework$Framework$Actor$altInit = $bellroy$elm_actor_framework$Framework$Internal$Actor$altInit;
 var $elm$core$Basics$apR = F2(
 	function (x, f) {
 		return f(x);
@@ -5202,7 +5202,7 @@ var $author$project$Components$Counter$component = {
 var $elm$core$Basics$identity = function (x) {
 	return x;
 };
-var $tricycle$elm_actor_framework$Framework$Internal$Actor$ProcessMethods = function (a) {
+var $bellroy$elm_actor_framework$Framework$Internal$Actor$ProcessMethods = function (a) {
 	return {$: 'ProcessMethods', a: a};
 };
 var $elm$core$List$foldrHelper = F4(
@@ -5268,7 +5268,7 @@ var $elm$core$List$append = F2(
 			return A3($elm$core$List$foldr, $elm$core$List$cons, ys, xs);
 		}
 	});
-var $tricycle$elm_actor_framework$Framework$Internal$Message$Batch = function (a) {
+var $bellroy$elm_actor_framework$Framework$Internal$Message$Batch = function (a) {
 	return {$: 'Batch', a: a};
 };
 var $elm$core$Basics$composeL = F3(
@@ -5276,20 +5276,20 @@ var $elm$core$Basics$composeL = F3(
 		return g(
 			f(x));
 	});
-var $tricycle$elm_actor_framework$Framework$Internal$Message$Operate = function (a) {
+var $bellroy$elm_actor_framework$Framework$Internal$Message$Operate = function (a) {
 	return {$: 'Operate', a: a};
 };
-var $tricycle$elm_actor_framework$Framework$Internal$Message$operate = $tricycle$elm_actor_framework$Framework$Internal$Message$Operate;
-var $tricycle$elm_actor_framework$Framework$Internal$Message$batch = A2($elm$core$Basics$composeL, $tricycle$elm_actor_framework$Framework$Internal$Message$operate, $tricycle$elm_actor_framework$Framework$Internal$Message$Batch);
-var $tricycle$elm_actor_framework$Framework$Internal$Message$Command = function (a) {
+var $bellroy$elm_actor_framework$Framework$Internal$Message$operate = $bellroy$elm_actor_framework$Framework$Internal$Message$Operate;
+var $bellroy$elm_actor_framework$Framework$Internal$Message$batch = A2($elm$core$Basics$composeL, $bellroy$elm_actor_framework$Framework$Internal$Message$operate, $bellroy$elm_actor_framework$Framework$Internal$Message$Batch);
+var $bellroy$elm_actor_framework$Framework$Internal$Message$Command = function (a) {
 	return {$: 'Command', a: a};
 };
-var $tricycle$elm_actor_framework$Framework$Internal$Message$command = $tricycle$elm_actor_framework$Framework$Internal$Message$Command;
-var $tricycle$elm_actor_framework$Framework$Internal$Message$InContextOfPid = F2(
+var $bellroy$elm_actor_framework$Framework$Internal$Message$command = $bellroy$elm_actor_framework$Framework$Internal$Message$Command;
+var $bellroy$elm_actor_framework$Framework$Internal$Message$InContextOfPid = F2(
 	function (a, b) {
 		return {$: 'InContextOfPid', a: a, b: b};
 	});
-var $tricycle$elm_actor_framework$Framework$Internal$Message$inContextOfPid = $tricycle$elm_actor_framework$Framework$Internal$Message$InContextOfPid;
+var $bellroy$elm_actor_framework$Framework$Internal$Message$inContextOfPid = $bellroy$elm_actor_framework$Framework$Internal$Message$InContextOfPid;
 var $elm$core$List$map = F2(
 	function (f, xs) {
 		return A3(
@@ -5314,30 +5314,30 @@ var $elm$core$Basics$composeR = F3(
 		return g(
 			f(x));
 	});
-var $tricycle$elm_actor_framework$Framework$Internal$Message$AppMsg = function (a) {
+var $bellroy$elm_actor_framework$Framework$Internal$Message$AppMsg = function (a) {
 	return {$: 'AppMsg', a: a};
 };
-var $tricycle$elm_actor_framework$Framework$Internal$Message$ForPid = F2(
+var $bellroy$elm_actor_framework$Framework$Internal$Message$ForPid = F2(
 	function (a, b) {
 		return {$: 'ForPid', a: a, b: b};
 	});
-var $tricycle$elm_actor_framework$Framework$Internal$Message$sendToPid = function (pid) {
+var $bellroy$elm_actor_framework$Framework$Internal$Message$sendToPid = function (pid) {
 	return A2(
 		$elm$core$Basics$composeR,
-		$tricycle$elm_actor_framework$Framework$Internal$Message$AppMsg,
+		$bellroy$elm_actor_framework$Framework$Internal$Message$AppMsg,
 		A2(
 			$elm$core$Basics$composeR,
-			$tricycle$elm_actor_framework$Framework$Internal$Message$ForPid(pid),
-			$tricycle$elm_actor_framework$Framework$Internal$Message$operate));
+			$bellroy$elm_actor_framework$Framework$Internal$Message$ForPid(pid),
+			$bellroy$elm_actor_framework$Framework$Internal$Message$operate));
 };
-var $tricycle$elm_actor_framework$Framework$Internal$Message$toSelf = F2(
+var $bellroy$elm_actor_framework$Framework$Internal$Message$toSelf = F2(
 	function (toAppMsg, pid) {
 		return A2(
 			$elm$core$Basics$composeR,
 			toAppMsg,
-			$tricycle$elm_actor_framework$Framework$Internal$Message$sendToPid(pid));
+			$bellroy$elm_actor_framework$Framework$Internal$Message$sendToPid(pid));
 	});
-var $tricycle$elm_actor_framework$Framework$Internal$Actor$wrapToTuple = F3(
+var $bellroy$elm_actor_framework$Framework$Internal$Actor$wrapToTuple = F3(
 	function (_v0, pid, _v1) {
 		var toAppModel = _v0.toAppModel;
 		var toAppMsg = _v0.toAppMsg;
@@ -5349,18 +5349,18 @@ var $tricycle$elm_actor_framework$Framework$Internal$Actor$wrapToTuple = F3(
 			$elm$core$Tuple$pair,
 			toAppModel(model),
 			A2(
-				$tricycle$elm_actor_framework$Framework$Internal$Message$inContextOfPid,
+				$bellroy$elm_actor_framework$Framework$Internal$Message$inContextOfPid,
 				pid,
-				$tricycle$elm_actor_framework$Framework$Internal$Message$batch(
+				$bellroy$elm_actor_framework$Framework$Internal$Message$batch(
 					A2(
 						$elm$core$List$append,
 						_Utils_eq(cmd, $elm$core$Platform$Cmd$none) ? _List_Nil : _List_fromArray(
 							[
-								$tricycle$elm_actor_framework$Framework$Internal$Message$operate(
-								$tricycle$elm_actor_framework$Framework$Internal$Message$command(
+								$bellroy$elm_actor_framework$Framework$Internal$Message$operate(
+								$bellroy$elm_actor_framework$Framework$Internal$Message$command(
 									A2(
 										$elm$core$Platform$Cmd$map,
-										A2($tricycle$elm_actor_framework$Framework$Internal$Message$toSelf, toAppMsg, pid),
+										A2($bellroy$elm_actor_framework$Framework$Internal$Message$toSelf, toAppMsg, pid),
 										cmd)))
 							]),
 						A2(
@@ -5371,31 +5371,31 @@ var $tricycle$elm_actor_framework$Framework$Internal$Actor$wrapToTuple = F3(
 							},
 							msgsOut)))));
 	});
-var $tricycle$elm_actor_framework$Framework$Internal$Actor$fromComponentInit = F3(
+var $bellroy$elm_actor_framework$Framework$Internal$Actor$fromComponentInit = F3(
 	function (_arguments, init, _v0) {
 		var pid = _v0.a;
 		var appFlags = _v0.b;
 		return A3(
-			$tricycle$elm_actor_framework$Framework$Internal$Actor$wrapToTuple,
+			$bellroy$elm_actor_framework$Framework$Internal$Actor$wrapToTuple,
 			_arguments,
 			pid,
 			init(
 				_Utils_Tuple2(pid, appFlags)));
 	});
 var $elm$core$Platform$Sub$map = _Platform_map;
-var $tricycle$elm_actor_framework$Framework$Internal$Actor$fromComponentSubscriptions = F4(
+var $bellroy$elm_actor_framework$Framework$Internal$Actor$fromComponentSubscriptions = F4(
 	function (_v0, subs, componentModel, pid) {
 		var toAppMsg = _v0.toAppMsg;
 		return _Utils_eq(
 			subs(componentModel),
 			$elm$core$Platform$Sub$none) ? $elm$core$Platform$Sub$none : A2(
 			$elm$core$Platform$Sub$map,
-			A2($tricycle$elm_actor_framework$Framework$Internal$Message$toSelf, toAppMsg, pid),
+			A2($bellroy$elm_actor_framework$Framework$Internal$Message$toSelf, toAppMsg, pid),
 			subs(componentModel));
 	});
-var $tricycle$elm_actor_framework$Framework$Internal$Message$NoOp = {$: 'NoOp'};
-var $tricycle$elm_actor_framework$Framework$Internal$Message$noOperation = $tricycle$elm_actor_framework$Framework$Internal$Message$NoOp;
-var $tricycle$elm_actor_framework$Framework$Internal$Actor$fromComponentUpdate = F5(
+var $bellroy$elm_actor_framework$Framework$Internal$Message$NoOp = {$: 'NoOp'};
+var $bellroy$elm_actor_framework$Framework$Internal$Message$noOperation = $bellroy$elm_actor_framework$Framework$Internal$Message$NoOp;
+var $bellroy$elm_actor_framework$Framework$Internal$Actor$fromComponentUpdate = F5(
 	function (_arguments, update, componentModel, msg, pid) {
 		if (msg.$ === 'AppMsg') {
 			var appMsg = msg.a;
@@ -5403,37 +5403,37 @@ var $tricycle$elm_actor_framework$Framework$Internal$Actor$fromComponentUpdate =
 			if (_v1.$ === 'Just') {
 				var componentMsgIn = _v1.a;
 				return A3(
-					$tricycle$elm_actor_framework$Framework$Internal$Actor$wrapToTuple,
+					$bellroy$elm_actor_framework$Framework$Internal$Actor$wrapToTuple,
 					_arguments,
 					pid,
 					A2(update, componentMsgIn, componentModel));
 			} else {
 				return _Utils_Tuple2(
 					_arguments.toAppModel(componentModel),
-					$tricycle$elm_actor_framework$Framework$Internal$Message$noOperation);
+					$bellroy$elm_actor_framework$Framework$Internal$Message$noOperation);
 			}
 		} else {
 			return _Utils_Tuple2(
 				_arguments.toAppModel(componentModel),
-				$tricycle$elm_actor_framework$Framework$Internal$Message$noOperation);
+				$bellroy$elm_actor_framework$Framework$Internal$Message$noOperation);
 		}
 	});
-var $tricycle$elm_actor_framework$Framework$Internal$Actor$fromComponentView = F4(
+var $bellroy$elm_actor_framework$Framework$Internal$Actor$fromComponentView = F4(
 	function (_v0, view, componentModel, pid) {
 		var toAppMsg = _v0.toAppMsg;
 		return A2(
 			view,
-			A2($tricycle$elm_actor_framework$Framework$Internal$Message$toSelf, toAppMsg, pid),
+			A2($bellroy$elm_actor_framework$Framework$Internal$Message$toSelf, toAppMsg, pid),
 			componentModel);
 	});
-var $tricycle$elm_actor_framework$Framework$Internal$Actor$fromComponent = F2(
+var $bellroy$elm_actor_framework$Framework$Internal$Actor$fromComponent = F2(
 	function (_arguments, component) {
-		var view = A2($tricycle$elm_actor_framework$Framework$Internal$Actor$fromComponentView, _arguments, component.view);
-		var update = A2($tricycle$elm_actor_framework$Framework$Internal$Actor$fromComponentUpdate, _arguments, component.update);
-		var subscriptions = A2($tricycle$elm_actor_framework$Framework$Internal$Actor$fromComponentSubscriptions, _arguments, component.subscriptions);
-		var processMethods = $tricycle$elm_actor_framework$Framework$Internal$Actor$ProcessMethods(
+		var view = A2($bellroy$elm_actor_framework$Framework$Internal$Actor$fromComponentView, _arguments, component.view);
+		var update = A2($bellroy$elm_actor_framework$Framework$Internal$Actor$fromComponentUpdate, _arguments, component.update);
+		var subscriptions = A2($bellroy$elm_actor_framework$Framework$Internal$Actor$fromComponentSubscriptions, _arguments, component.subscriptions);
+		var processMethods = $bellroy$elm_actor_framework$Framework$Internal$Actor$ProcessMethods(
 			{subscriptions: subscriptions, update: update, view: view});
-		var init = A2($tricycle$elm_actor_framework$Framework$Internal$Actor$fromComponentInit, _arguments, component.init);
+		var init = A2($bellroy$elm_actor_framework$Framework$Internal$Actor$fromComponentInit, _arguments, component.init);
 		var apply = function (componentModel) {
 			return {
 				subscriptions: subscriptions(componentModel),
@@ -5443,10 +5443,10 @@ var $tricycle$elm_actor_framework$Framework$Internal$Actor$fromComponent = F2(
 		};
 		return {apply: apply, init: init, processMethods: processMethods};
 	});
-var $tricycle$elm_actor_framework$Framework$Actor$fromComponent = $tricycle$elm_actor_framework$Framework$Internal$Actor$fromComponent;
-var $tricycle$elm_actor_framework$Framework$Message$noOperation = $tricycle$elm_actor_framework$Framework$Internal$Message$noOperation;
+var $bellroy$elm_actor_framework$Framework$Actor$fromComponent = $bellroy$elm_actor_framework$Framework$Internal$Actor$fromComponent;
+var $bellroy$elm_actor_framework$Framework$Message$noOperation = $bellroy$elm_actor_framework$Framework$Internal$Message$noOperation;
 var $author$project$Actors$Counter$actor = A2(
-	$tricycle$elm_actor_framework$Framework$Actor$fromComponent,
+	$bellroy$elm_actor_framework$Framework$Actor$fromComponent,
 	{
 		fromAppMsg: function (msg) {
 			if (msg.$ === 'CounterMsg') {
@@ -5457,13 +5457,13 @@ var $author$project$Actors$Counter$actor = A2(
 			}
 		},
 		onMsgOut: function (_v3) {
-			return $tricycle$elm_actor_framework$Framework$Message$noOperation;
+			return $bellroy$elm_actor_framework$Framework$Message$noOperation;
 		},
 		toAppModel: $author$project$Model$CounterModel,
 		toAppMsg: $author$project$Msg$CounterMsg
 	},
 	A2(
-		$tricycle$elm_actor_framework$Framework$Actor$altInit,
+		$bellroy$elm_actor_framework$Framework$Actor$altInit,
 		F2(
 			function (init, _v0) {
 				var pid = _v0.a;
@@ -5528,18 +5528,18 @@ var $elm$core$Result$mapError = F2(
 				f(e));
 		}
 	});
-var $tricycle$elm_actor_framework_template$Framework$Template$Actor = function (a) {
+var $bellroy$elm_actor_framework_template$Framework$Template$Actor = function (a) {
 	return {$: 'Actor', a: a};
 };
-var $tricycle$elm_actor_framework_template$Framework$Template$ActorElement = F5(
+var $bellroy$elm_actor_framework_template$Framework$Template$ActorElement = F5(
 	function (a, b, c, d, e) {
 		return {$: 'ActorElement', a: a, b: b, c: c, d: d, e: e};
 	});
-var $tricycle$elm_actor_framework_template$Framework$Template$Element = F3(
+var $bellroy$elm_actor_framework_template$Framework$Template$Element = F3(
 	function (a, b, c) {
 		return {$: 'Element', a: a, b: b, c: c};
 	});
-var $tricycle$elm_actor_framework_template$Framework$Template$Text = function (a) {
+var $bellroy$elm_actor_framework_template$Framework$Template$Text = function (a) {
 	return {$: 'Text', a: a};
 };
 var $elm$core$List$maybeCons = F3(
@@ -5592,17 +5592,17 @@ var $elm$core$Dict$get = F2(
 			}
 		}
 	});
-var $tricycle$elm_actor_framework_template$Framework$Template$Internal$Components$toDict = function (_v0) {
+var $bellroy$elm_actor_framework_template$Framework$Template$Internal$Components$toDict = function (_v0) {
 	var dict = _v0.a;
 	return dict;
 };
-var $tricycle$elm_actor_framework_template$Framework$Template$Internal$Components$get = function (query) {
+var $bellroy$elm_actor_framework_template$Framework$Template$Internal$Components$get = function (query) {
 	return A2(
 		$elm$core$Basics$composeR,
-		$tricycle$elm_actor_framework_template$Framework$Template$Internal$Components$toDict,
+		$bellroy$elm_actor_framework_template$Framework$Template$Internal$Components$toDict,
 		$elm$core$Dict$get(query));
 };
-var $tricycle$elm_actor_framework_template$Framework$Template$Components$getByNodeName = $tricycle$elm_actor_framework_template$Framework$Template$Internal$Components$get;
+var $bellroy$elm_actor_framework_template$Framework$Template$Components$getByNodeName = $bellroy$elm_actor_framework_template$Framework$Template$Internal$Components$get;
 var $elm$core$Bitwise$and = _Bitwise_and;
 var $elm$core$Array$repeat = F2(
 	function (n, e) {
@@ -6356,16 +6356,16 @@ var $hecrj$html_parser$Html$Parser$nodeToString = function (node_) {
 			return '<!-- ' + (comment_ + ' -->');
 	}
 };
-var $tricycle$elm_actor_framework_template$Framework$Template$Internal$Component$toActor = function (_v0) {
+var $bellroy$elm_actor_framework_template$Framework$Template$Internal$Component$toActor = function (_v0) {
 	var actor = _v0.a.actor;
 	return actor;
 };
-var $tricycle$elm_actor_framework_template$Framework$Template$Component$toActor = $tricycle$elm_actor_framework_template$Framework$Template$Internal$Component$toActor;
-var $tricycle$elm_actor_framework_template$Framework$Template$Internal$Component$toDefaultAttributes = function (_v0) {
+var $bellroy$elm_actor_framework_template$Framework$Template$Component$toActor = $bellroy$elm_actor_framework_template$Framework$Template$Internal$Component$toActor;
+var $bellroy$elm_actor_framework_template$Framework$Template$Internal$Component$toDefaultAttributes = function (_v0) {
 	var defaultAttributes = _v0.a.defaultAttributes;
 	return defaultAttributes;
 };
-var $tricycle$elm_actor_framework_template$Framework$Template$Component$toDefaultAttributes = $tricycle$elm_actor_framework_template$Framework$Template$Internal$Component$toDefaultAttributes;
+var $bellroy$elm_actor_framework_template$Framework$Template$Component$toDefaultAttributes = $bellroy$elm_actor_framework_template$Framework$Template$Internal$Component$toDefaultAttributes;
 var $elm$core$String$trim = _String_trim;
 var $author$project$Framework$Template$Html$Internal$Parser$parserNodeToTemplateNode = F2(
 	function (components, htmlParserNode) {
@@ -6378,34 +6378,34 @@ var $author$project$Framework$Template$Html$Internal$Parser$parserNodeToTemplate
 				} else {
 					var a = htmlParserNode.a;
 					return ($elm$core$String$trim(a) === '') ? $elm$core$Maybe$Nothing : $elm$core$Maybe$Just(
-						$tricycle$elm_actor_framework_template$Framework$Template$Text(a));
+						$bellroy$elm_actor_framework_template$Framework$Template$Text(a));
 				}
 			default:
 				var nodeName = htmlParserNode.a;
 				var attributes = htmlParserNode.b;
 				var children = htmlParserNode.c;
-				var _v1 = A2($tricycle$elm_actor_framework_template$Framework$Template$Components$getByNodeName, nodeName, components);
+				var _v1 = A2($bellroy$elm_actor_framework_template$Framework$Template$Components$getByNodeName, nodeName, components);
 				if (_v1.$ === 'Nothing') {
 					return $elm$core$Maybe$Just(
 						A3(
-							$tricycle$elm_actor_framework_template$Framework$Template$Element,
+							$bellroy$elm_actor_framework_template$Framework$Template$Element,
 							nodeName,
 							attributes,
 							A2($author$project$Framework$Template$Html$Internal$Parser$parserNodesToTemplateNodes, components, children)));
 				} else {
 					var component = _v1.a;
 					return $elm$core$Maybe$Just(
-						$tricycle$elm_actor_framework_template$Framework$Template$Actor(
+						$bellroy$elm_actor_framework_template$Framework$Template$Actor(
 							A5(
-								$tricycle$elm_actor_framework_template$Framework$Template$ActorElement,
-								$tricycle$elm_actor_framework_template$Framework$Template$Component$toActor(component),
+								$bellroy$elm_actor_framework_template$Framework$Template$ActorElement,
+								$bellroy$elm_actor_framework_template$Framework$Template$Component$toActor(component),
 								nodeName,
 								$truqu$elm_md5$MD5$hex(
 									$hecrj$html_parser$Html$Parser$nodeToString(htmlParserNode)),
 								A2(
 									$author$project$Framework$Template$Html$Internal$Parser$mergeAttributes,
 									attributes,
-									$tricycle$elm_actor_framework_template$Framework$Template$Component$toDefaultAttributes(component)),
+									$bellroy$elm_actor_framework_template$Framework$Template$Component$toDefaultAttributes(component)),
 								A2($author$project$Framework$Template$Html$Internal$Parser$parserNodesToTemplateNodes, components, children))));
 				}
 		}
@@ -10053,73 +10053,73 @@ var $author$project$Components$Editor$component = function (components) {
 };
 var $author$project$Actors$Counter = {$: 'Counter'};
 var $author$project$Actors$Layout = {$: 'Layout'};
-var $tricycle$elm_actor_framework_template$Framework$Template$Internal$Components$Components = function (a) {
+var $bellroy$elm_actor_framework_template$Framework$Template$Internal$Components$Components = function (a) {
 	return {$: 'Components', a: a};
 };
-var $tricycle$elm_actor_framework_template$Framework$Template$Internal$Components$fromDict = $tricycle$elm_actor_framework_template$Framework$Template$Internal$Components$Components;
-var $tricycle$elm_actor_framework_template$Framework$Template$Internal$Component$toNodeName = function (_v0) {
+var $bellroy$elm_actor_framework_template$Framework$Template$Internal$Components$fromDict = $bellroy$elm_actor_framework_template$Framework$Template$Internal$Components$Components;
+var $bellroy$elm_actor_framework_template$Framework$Template$Internal$Component$toNodeName = function (_v0) {
 	var nodeName = _v0.a.nodeName;
 	return nodeName;
 };
-var $tricycle$elm_actor_framework_template$Framework$Template$Internal$Components$fromList = A2(
+var $bellroy$elm_actor_framework_template$Framework$Template$Internal$Components$fromList = A2(
 	$elm$core$Basics$composeR,
 	$elm$core$List$map(
 		function (component) {
 			return _Utils_Tuple2(
-				$tricycle$elm_actor_framework_template$Framework$Template$Internal$Component$toNodeName(component),
+				$bellroy$elm_actor_framework_template$Framework$Template$Internal$Component$toNodeName(component),
 				component);
 		}),
-	A2($elm$core$Basics$composeR, $elm$core$Dict$fromList, $tricycle$elm_actor_framework_template$Framework$Template$Internal$Components$fromDict));
-var $tricycle$elm_actor_framework_template$Framework$Template$Components$fromList = $tricycle$elm_actor_framework_template$Framework$Template$Internal$Components$fromList;
-var $tricycle$elm_actor_framework_template$Framework$Template$Internal$Component$Component = function (a) {
+	A2($elm$core$Basics$composeR, $elm$core$Dict$fromList, $bellroy$elm_actor_framework_template$Framework$Template$Internal$Components$fromDict));
+var $bellroy$elm_actor_framework_template$Framework$Template$Components$fromList = $bellroy$elm_actor_framework_template$Framework$Template$Internal$Components$fromList;
+var $bellroy$elm_actor_framework_template$Framework$Template$Internal$Component$Component = function (a) {
 	return {$: 'Component', a: a};
 };
-var $tricycle$elm_actor_framework_template$Framework$Template$Internal$Component$make = function (_v0) {
+var $bellroy$elm_actor_framework_template$Framework$Template$Internal$Component$make = function (_v0) {
 	var nodeName = _v0.nodeName;
 	var actor = _v0.actor;
-	return $tricycle$elm_actor_framework_template$Framework$Template$Internal$Component$Component(
+	return $bellroy$elm_actor_framework_template$Framework$Template$Internal$Component$Component(
 		{actor: actor, defaultAttributes: _List_Nil, nodeName: nodeName});
 };
-var $tricycle$elm_actor_framework_template$Framework$Template$Component$make = $tricycle$elm_actor_framework_template$Framework$Template$Internal$Component$make;
-var $tricycle$elm_actor_framework_template$Framework$Template$Internal$Component$setDefaultAttributes = F2(
+var $bellroy$elm_actor_framework_template$Framework$Template$Component$make = $bellroy$elm_actor_framework_template$Framework$Template$Internal$Component$make;
+var $bellroy$elm_actor_framework_template$Framework$Template$Internal$Component$setDefaultAttributes = F2(
 	function (defaultAttributes, _v0) {
 		var r = _v0.a;
-		return $tricycle$elm_actor_framework_template$Framework$Template$Internal$Component$Component(
+		return $bellroy$elm_actor_framework_template$Framework$Template$Internal$Component$Component(
 			_Utils_update(
 				r,
 				{defaultAttributes: defaultAttributes}));
 	});
-var $tricycle$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes = $tricycle$elm_actor_framework_template$Framework$Template$Internal$Component$setDefaultAttributes;
-var $author$project$Actors$components = $tricycle$elm_actor_framework_template$Framework$Template$Components$fromList(
+var $bellroy$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes = $bellroy$elm_actor_framework_template$Framework$Template$Internal$Component$setDefaultAttributes;
+var $author$project$Actors$components = $bellroy$elm_actor_framework_template$Framework$Template$Components$fromList(
 	_List_fromArray(
 		[
 			A2(
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$setDefaultAttributes,
 			_List_fromArray(
 				[
 					_Utils_Tuple2('value', '10')
 				]),
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$make(
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$make(
 				{actor: $author$project$Actors$Counter, nodeName: 'counter-component'})),
-			$tricycle$elm_actor_framework_template$Framework$Template$Component$make(
+			$bellroy$elm_actor_framework_template$Framework$Template$Component$make(
 			{actor: $author$project$Actors$Layout, nodeName: 'layout-component'})
 		]));
-var $tricycle$elm_actor_framework$Framework$Internal$Message$ForAddress = F2(
+var $bellroy$elm_actor_framework$Framework$Internal$Message$ForAddress = F2(
 	function (a, b) {
 		return {$: 'ForAddress', a: a, b: b};
 	});
-var $tricycle$elm_actor_framework$Framework$Internal$Message$sendToAddress = function (address) {
+var $bellroy$elm_actor_framework$Framework$Internal$Message$sendToAddress = function (address) {
 	return A2(
 		$elm$core$Basics$composeR,
-		$tricycle$elm_actor_framework$Framework$Internal$Message$AppMsg,
+		$bellroy$elm_actor_framework$Framework$Internal$Message$AppMsg,
 		A2(
 			$elm$core$Basics$composeR,
-			$tricycle$elm_actor_framework$Framework$Internal$Message$ForAddress(address),
-			$tricycle$elm_actor_framework$Framework$Internal$Message$operate));
+			$bellroy$elm_actor_framework$Framework$Internal$Message$ForAddress(address),
+			$bellroy$elm_actor_framework$Framework$Internal$Message$operate));
 };
-var $tricycle$elm_actor_framework$Framework$Message$sendToAddress = $tricycle$elm_actor_framework$Framework$Internal$Message$sendToAddress;
+var $bellroy$elm_actor_framework$Framework$Message$sendToAddress = $bellroy$elm_actor_framework$Framework$Internal$Message$sendToAddress;
 var $author$project$Actors$Editor$actor = A2(
-	$tricycle$elm_actor_framework$Framework$Actor$fromComponent,
+	$bellroy$elm_actor_framework$Framework$Actor$fromComponent,
 	{
 		fromAppMsg: function (msg) {
 			if (msg.$ === 'EditorMsg') {
@@ -10134,7 +10134,7 @@ var $author$project$Actors$Editor$actor = A2(
 			var msgOut = _v3.msgOut;
 			var htmlTemplate = msgOut.a;
 			return A2(
-				$tricycle$elm_actor_framework$Framework$Message$sendToAddress,
+				$bellroy$elm_actor_framework$Framework$Message$sendToAddress,
 				$author$project$Address$BaseLayoutAddress,
 				$author$project$Msg$LayoutMsg(
 					$author$project$Components$Layout$UpdateHtmlTemplate(htmlTemplate)));
@@ -10143,7 +10143,7 @@ var $author$project$Actors$Editor$actor = A2(
 		toAppMsg: $author$project$Msg$EditorMsg
 	},
 	A2(
-		$tricycle$elm_actor_framework$Framework$Actor$altInit,
+		$bellroy$elm_actor_framework$Framework$Actor$altInit,
 		F2(
 			function (init, _v0) {
 				var pid = _v0.a;
@@ -10172,7 +10172,7 @@ var $author$project$Components$Layout$OnSpawnedActor = F2(
 	function (a, b) {
 		return {$: 'OnSpawnedActor', a: a, b: b};
 	});
-var $tricycle$elm_actor_framework$Framework$Message$batch = $tricycle$elm_actor_framework$Framework$Internal$Message$batch;
+var $bellroy$elm_actor_framework$Framework$Message$batch = $bellroy$elm_actor_framework$Framework$Internal$Message$batch;
 var $author$project$Framework$Template$Html$Internal$HtmlTemplate$empty = $author$project$Framework$Template$Html$Internal$HtmlTemplate$fromNodes(_List_Nil);
 var $author$project$Framework$Template$Html$blank = $author$project$Framework$Template$Html$Internal$HtmlTemplate$empty;
 var $author$project$Components$Layout$SpawnActors = function (a) {
@@ -10181,7 +10181,7 @@ var $author$project$Components$Layout$SpawnActors = function (a) {
 var $author$project$Components$Layout$StopProcesses = function (a) {
 	return {$: 'StopProcesses', a: a};
 };
-function $tricycle$elm_actor_framework_template$Framework$Template$cyclic$getActorElementDescendants() {
+function $bellroy$elm_actor_framework_template$Framework$Template$cyclic$getActorElementDescendants() {
 	return A2(
 		$elm$core$List$foldl,
 		F2(
@@ -10194,7 +10194,7 @@ function $tricycle$elm_actor_framework_template$Framework$Template$cyclic$getAct
 						return A2(
 							$elm$core$List$append,
 							list,
-							$tricycle$elm_actor_framework_template$Framework$Template$cyclic$getActorElementDescendants()(children));
+							$bellroy$elm_actor_framework_template$Framework$Template$cyclic$getActorElementDescendants()(children));
 					default:
 						var actorElement = node.a;
 						return A2(
@@ -10207,15 +10207,15 @@ function $tricycle$elm_actor_framework_template$Framework$Template$cyclic$getAct
 		_List_Nil);
 }
 try {
-	var $tricycle$elm_actor_framework_template$Framework$Template$getActorElementDescendants = $tricycle$elm_actor_framework_template$Framework$Template$cyclic$getActorElementDescendants();
-	$tricycle$elm_actor_framework_template$Framework$Template$cyclic$getActorElementDescendants = function () {
-		return $tricycle$elm_actor_framework_template$Framework$Template$getActorElementDescendants;
+	var $bellroy$elm_actor_framework_template$Framework$Template$getActorElementDescendants = $bellroy$elm_actor_framework_template$Framework$Template$cyclic$getActorElementDescendants();
+	$bellroy$elm_actor_framework_template$Framework$Template$cyclic$getActorElementDescendants = function () {
+		return $bellroy$elm_actor_framework_template$Framework$Template$getActorElementDescendants;
 	};
 } catch ($) {
 	throw 'Some top-level definitions from `Framework.Template` are causing infinite recursion:\n\n  ┌─────┐\n  │    getActorElementDescendants\n  └─────┘\n\nThese errors are very tricky, so read https://elm-lang.org/0.19.1/bad-recursion to learn how to fix it!';}
-var $tricycle$elm_actor_framework_template$Framework$Template$getActorsToSpawn = A2(
+var $bellroy$elm_actor_framework_template$Framework$Template$getActorsToSpawn = A2(
 	$elm$core$Basics$composeR,
-	$tricycle$elm_actor_framework_template$Framework$Template$getActorElementDescendants,
+	$bellroy$elm_actor_framework_template$Framework$Template$getActorElementDescendants,
 	A2(
 		$elm$core$Basics$composeR,
 		$elm$core$List$map(
@@ -10235,7 +10235,7 @@ var $author$project$Framework$Template$Html$Internal$HtmlTemplate$toNodes = func
 	var nodes = _v0.a;
 	return nodes;
 };
-var $author$project$Framework$Template$Html$Internal$HtmlTemplate$getActorsToSpawn = A2($elm$core$Basics$composeR, $author$project$Framework$Template$Html$Internal$HtmlTemplate$toNodes, $tricycle$elm_actor_framework_template$Framework$Template$getActorsToSpawn);
+var $author$project$Framework$Template$Html$Internal$HtmlTemplate$getActorsToSpawn = A2($elm$core$Basics$composeR, $author$project$Framework$Template$Html$Internal$HtmlTemplate$toNodes, $bellroy$elm_actor_framework_template$Framework$Template$getActorsToSpawn);
 var $author$project$Framework$Template$Html$getActorsToSpawn = $author$project$Framework$Template$Html$Internal$HtmlTemplate$getActorsToSpawn;
 var $author$project$Components$Layout$update = F2(
 	function (msgIn, model) {
@@ -10428,25 +10428,25 @@ var $author$project$Components$Layout$component = {
 	view: $author$project$Components$Layout$view
 };
 var $author$project$Framework$Template$Html$fromNodes = $author$project$Framework$Template$Html$Internal$HtmlTemplate$fromNodes;
-var $tricycle$elm_actor_framework$Framework$Message$sendToPid = $tricycle$elm_actor_framework$Framework$Internal$Message$sendToPid;
-var $tricycle$elm_actor_framework$Framework$Internal$Message$Spawn = F3(
+var $bellroy$elm_actor_framework$Framework$Message$sendToPid = $bellroy$elm_actor_framework$Framework$Internal$Message$sendToPid;
+var $bellroy$elm_actor_framework$Framework$Internal$Message$Spawn = F3(
 	function (a, b, c) {
 		return {$: 'Spawn', a: a, b: b, c: c};
 	});
-var $tricycle$elm_actor_framework$Framework$Internal$Message$spawn = F3(
+var $bellroy$elm_actor_framework$Framework$Internal$Message$spawn = F3(
 	function (flags, actorName, callback) {
-		return $tricycle$elm_actor_framework$Framework$Internal$Message$operate(
-			A3($tricycle$elm_actor_framework$Framework$Internal$Message$Spawn, flags, actorName, callback));
+		return $bellroy$elm_actor_framework$Framework$Internal$Message$operate(
+			A3($bellroy$elm_actor_framework$Framework$Internal$Message$Spawn, flags, actorName, callback));
 	});
-var $tricycle$elm_actor_framework$Framework$Message$spawn = $tricycle$elm_actor_framework$Framework$Internal$Message$spawn;
-var $tricycle$elm_actor_framework$Framework$Internal$Message$StopProcess = function (a) {
+var $bellroy$elm_actor_framework$Framework$Message$spawn = $bellroy$elm_actor_framework$Framework$Internal$Message$spawn;
+var $bellroy$elm_actor_framework$Framework$Internal$Message$StopProcess = function (a) {
 	return {$: 'StopProcess', a: a};
 };
-var $tricycle$elm_actor_framework$Framework$Internal$Message$stopProcess = A2($elm$core$Basics$composeR, $tricycle$elm_actor_framework$Framework$Internal$Message$StopProcess, $tricycle$elm_actor_framework$Framework$Internal$Message$operate);
-var $tricycle$elm_actor_framework$Framework$Message$stopProcess = $tricycle$elm_actor_framework$Framework$Internal$Message$stopProcess;
+var $bellroy$elm_actor_framework$Framework$Internal$Message$stopProcess = A2($elm$core$Basics$composeR, $bellroy$elm_actor_framework$Framework$Internal$Message$StopProcess, $bellroy$elm_actor_framework$Framework$Internal$Message$operate);
+var $bellroy$elm_actor_framework$Framework$Message$stopProcess = $bellroy$elm_actor_framework$Framework$Internal$Message$stopProcess;
 var $elm$core$String$toInt = _String_toInt;
 var $author$project$Actors$Layout$actor = A2(
-	$tricycle$elm_actor_framework$Framework$Actor$fromComponent,
+	$bellroy$elm_actor_framework$Framework$Actor$fromComponent,
 	{
 		fromAppMsg: function (msg) {
 			if (msg.$ === 'LayoutMsg') {
@@ -10461,11 +10461,11 @@ var $author$project$Actors$Layout$actor = A2(
 			var msgOut = _v3.msgOut;
 			if (msgOut.$ === 'StopProcesses') {
 				var pids = msgOut.a;
-				return $tricycle$elm_actor_framework$Framework$Message$batch(
-					A2($elm$core$List$map, $tricycle$elm_actor_framework$Framework$Message$stopProcess, pids));
+				return $bellroy$elm_actor_framework$Framework$Message$batch(
+					A2($elm$core$List$map, $bellroy$elm_actor_framework$Framework$Message$stopProcess, pids));
 			} else {
 				var actorsAndReferences = msgOut.a;
-				return $tricycle$elm_actor_framework$Framework$Message$batch(
+				return $bellroy$elm_actor_framework$Framework$Message$batch(
 					A2(
 						$elm$core$List$map,
 						function (_v5) {
@@ -10520,7 +10520,7 @@ var $author$project$Actors$Layout$actor = A2(
 								}
 							}();
 							return A3(
-								$tricycle$elm_actor_framework$Framework$Message$spawn,
+								$bellroy$elm_actor_framework$Framework$Message$spawn,
 								flags,
 								actorToSpawn,
 								A2(
@@ -10529,7 +10529,7 @@ var $author$project$Actors$Layout$actor = A2(
 									A2(
 										$elm$core$Basics$composeR,
 										$author$project$Msg$LayoutMsg,
-										$tricycle$elm_actor_framework$Framework$Message$sendToPid(self))));
+										$bellroy$elm_actor_framework$Framework$Message$sendToPid(self))));
 						},
 						actorsAndReferences));
 			}
@@ -10538,7 +10538,7 @@ var $author$project$Actors$Layout$actor = A2(
 		toAppMsg: $author$project$Msg$LayoutMsg
 	},
 	A2(
-		$tricycle$elm_actor_framework$Framework$Actor$altInit,
+		$bellroy$elm_actor_framework$Framework$Actor$altInit,
 		F2(
 			function (init, _v0) {
 				var pid = _v0.a;
@@ -10786,7 +10786,7 @@ var $elm$core$Task$perform = F2(
 				A2($elm$core$Task$map, toMessage, task)));
 	});
 var $elm$browser$Browser$element = _Browser_element;
-var $tricycle$elm_actor_framework$Framework$Internal$Model$getViews = function ($) {
+var $bellroy$elm_actor_framework$Framework$Internal$Model$getViews = function ($) {
 	return $.views;
 };
 var $elm$core$Maybe$map = F2(
@@ -10799,11 +10799,11 @@ var $elm$core$Maybe$map = F2(
 			return $elm$core$Maybe$Nothing;
 		}
 	});
-var $tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$toDict = function (_v0) {
+var $bellroy$elm_actor_framework$Framework$Internal$Model$PidCollection$toDict = function (_v0) {
 	var dict = _v0.a;
 	return dict;
 };
-var $tricycle$elm_actor_framework$Framework$Internal$Pid$toInt = function (pid) {
+var $bellroy$elm_actor_framework$Framework$Internal$Pid$toInt = function (pid) {
 	if (pid.$ === 'System') {
 		return 1;
 	} else {
@@ -10811,32 +10811,32 @@ var $tricycle$elm_actor_framework$Framework$Internal$Pid$toInt = function (pid) 
 		return id;
 	}
 };
-var $tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$get = function (pid) {
+var $bellroy$elm_actor_framework$Framework$Internal$Model$PidCollection$get = function (pid) {
 	return A2(
 		$elm$core$Basics$composeR,
-		$tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$toDict,
+		$bellroy$elm_actor_framework$Framework$Internal$Model$PidCollection$toDict,
 		A2(
 			$elm$core$Basics$composeR,
 			$elm$core$Dict$get(
-				$tricycle$elm_actor_framework$Framework$Internal$Pid$toInt(pid)),
+				$bellroy$elm_actor_framework$Framework$Internal$Pid$toInt(pid)),
 			$elm$core$Maybe$map($elm$core$Tuple$second)));
 };
-var $tricycle$elm_actor_framework$Framework$Internal$Model$Instances$toPidCollection = function (_v0) {
+var $bellroy$elm_actor_framework$Framework$Internal$Model$Instances$toPidCollection = function (_v0) {
 	var pidCollection = _v0.a;
 	return pidCollection;
 };
-var $tricycle$elm_actor_framework$Framework$Internal$Model$Instances$get = function (pid) {
+var $bellroy$elm_actor_framework$Framework$Internal$Model$Instances$get = function (pid) {
 	return A2(
 		$elm$core$Basics$composeR,
-		$tricycle$elm_actor_framework$Framework$Internal$Model$Instances$toPidCollection,
-		$tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$get(pid));
+		$bellroy$elm_actor_framework$Framework$Internal$Model$Instances$toPidCollection,
+		$bellroy$elm_actor_framework$Framework$Internal$Model$PidCollection$get(pid));
 };
-var $tricycle$elm_actor_framework$Framework$Internal$Model$getInstance = F2(
+var $bellroy$elm_actor_framework$Framework$Internal$Model$getInstance = F2(
 	function (pid, _v0) {
 		var instances = _v0.instances;
-		return A2($tricycle$elm_actor_framework$Framework$Internal$Model$Instances$get, pid, instances);
+		return A2($bellroy$elm_actor_framework$Framework$Internal$Model$Instances$get, pid, instances);
 	});
-var $tricycle$elm_actor_framework$Framework$Internal$Render$renderPid = F3(
+var $bellroy$elm_actor_framework$Framework$Internal$Render$renderPid = F3(
 	function (appliedActorView, frameworkModel, pid) {
 		return A2(
 			$elm$core$Maybe$map,
@@ -10845,16 +10845,16 @@ var $tricycle$elm_actor_framework$Framework$Internal$Render$renderPid = F3(
 					appliedActorView,
 					appModel,
 					pid,
-					A2($tricycle$elm_actor_framework$Framework$Internal$Render$renderPid, appliedActorView, frameworkModel));
+					A2($bellroy$elm_actor_framework$Framework$Internal$Render$renderPid, appliedActorView, frameworkModel));
 			},
-			A2($tricycle$elm_actor_framework$Framework$Internal$Model$getInstance, pid, frameworkModel));
+			A2($bellroy$elm_actor_framework$Framework$Internal$Model$getInstance, pid, frameworkModel));
 	});
-var $tricycle$elm_actor_framework$Framework$Internal$Render$element = F2(
+var $bellroy$elm_actor_framework$Framework$Internal$Render$element = F2(
 	function (apply, frameworkModel) {
 		return A2(
 			$elm$core$List$filterMap,
 			A2(
-				$tricycle$elm_actor_framework$Framework$Internal$Render$renderPid,
+				$bellroy$elm_actor_framework$Framework$Internal$Render$renderPid,
 				A2(
 					$elm$core$Basics$composeL,
 					function ($) {
@@ -10862,32 +10862,32 @@ var $tricycle$elm_actor_framework$Framework$Internal$Render$element = F2(
 					},
 					apply),
 				frameworkModel),
-			$tricycle$elm_actor_framework$Framework$Internal$Model$getViews(frameworkModel));
+			$bellroy$elm_actor_framework$Framework$Internal$Model$getViews(frameworkModel));
 	});
-var $tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$PidCollection = function (a) {
+var $bellroy$elm_actor_framework$Framework$Internal$Model$PidCollection$PidCollection = function (a) {
 	return {$: 'PidCollection', a: a};
 };
-var $tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$fromDict = $tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$PidCollection;
-var $tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$empty = $tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$fromDict($elm$core$Dict$empty);
-var $tricycle$elm_actor_framework$Framework$Internal$Model$Instances$Instances = function (a) {
+var $bellroy$elm_actor_framework$Framework$Internal$Model$PidCollection$fromDict = $bellroy$elm_actor_framework$Framework$Internal$Model$PidCollection$PidCollection;
+var $bellroy$elm_actor_framework$Framework$Internal$Model$PidCollection$empty = $bellroy$elm_actor_framework$Framework$Internal$Model$PidCollection$fromDict($elm$core$Dict$empty);
+var $bellroy$elm_actor_framework$Framework$Internal$Model$Instances$Instances = function (a) {
 	return {$: 'Instances', a: a};
 };
-var $tricycle$elm_actor_framework$Framework$Internal$Model$Instances$fromPidCollection = $tricycle$elm_actor_framework$Framework$Internal$Model$Instances$Instances;
-var $tricycle$elm_actor_framework$Framework$Internal$Model$Instances$empty = $tricycle$elm_actor_framework$Framework$Internal$Model$Instances$fromPidCollection($tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$empty);
-var $tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$OccupiedAddresses = function (a) {
+var $bellroy$elm_actor_framework$Framework$Internal$Model$Instances$fromPidCollection = $bellroy$elm_actor_framework$Framework$Internal$Model$Instances$Instances;
+var $bellroy$elm_actor_framework$Framework$Internal$Model$Instances$empty = $bellroy$elm_actor_framework$Framework$Internal$Model$Instances$fromPidCollection($bellroy$elm_actor_framework$Framework$Internal$Model$PidCollection$empty);
+var $bellroy$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$OccupiedAddresses = function (a) {
 	return {$: 'OccupiedAddresses', a: a};
 };
-var $tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$fromList = $tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$OccupiedAddresses;
-var $tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$empty = $tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$fromList(_List_Nil);
-var $tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Parents = function (a) {
+var $bellroy$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$fromList = $bellroy$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$OccupiedAddresses;
+var $bellroy$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$empty = $bellroy$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$fromList(_List_Nil);
+var $bellroy$elm_actor_framework$Framework$Internal$Model$Parents$Parents = function (a) {
 	return {$: 'Parents', a: a};
 };
-var $tricycle$elm_actor_framework$Framework$Internal$Model$Parents$fromPidCollection = $tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Parents;
-var $tricycle$elm_actor_framework$Framework$Internal$Model$Parents$empty = $tricycle$elm_actor_framework$Framework$Internal$Model$Parents$fromPidCollection($tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$empty);
-var $tricycle$elm_actor_framework$Framework$Internal$Pid$System = {$: 'System'};
-var $tricycle$elm_actor_framework$Framework$Internal$Pid$system = $tricycle$elm_actor_framework$Framework$Internal$Pid$System;
-var $tricycle$elm_actor_framework$Framework$Internal$Model$empty = {documentTitle: '', instances: $tricycle$elm_actor_framework$Framework$Internal$Model$Instances$empty, lastPid: $tricycle$elm_actor_framework$Framework$Internal$Pid$system, occupiedAddresses: $tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$empty, parents: $tricycle$elm_actor_framework$Framework$Internal$Model$Parents$empty, views: _List_Nil};
-var $tricycle$elm_actor_framework$Framework$Internal$Model$addToView = F2(
+var $bellroy$elm_actor_framework$Framework$Internal$Model$Parents$fromPidCollection = $bellroy$elm_actor_framework$Framework$Internal$Model$Parents$Parents;
+var $bellroy$elm_actor_framework$Framework$Internal$Model$Parents$empty = $bellroy$elm_actor_framework$Framework$Internal$Model$Parents$fromPidCollection($bellroy$elm_actor_framework$Framework$Internal$Model$PidCollection$empty);
+var $bellroy$elm_actor_framework$Framework$Internal$Pid$System = {$: 'System'};
+var $bellroy$elm_actor_framework$Framework$Internal$Pid$system = $bellroy$elm_actor_framework$Framework$Internal$Pid$System;
+var $bellroy$elm_actor_framework$Framework$Internal$Model$empty = {documentTitle: '', instances: $bellroy$elm_actor_framework$Framework$Internal$Model$Instances$empty, lastPid: $bellroy$elm_actor_framework$Framework$Internal$Pid$system, occupiedAddresses: $bellroy$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$empty, parents: $bellroy$elm_actor_framework$Framework$Internal$Model$Parents$empty, views: _List_Nil};
+var $bellroy$elm_actor_framework$Framework$Internal$Model$addToView = F2(
 	function (pid, model) {
 		return _Utils_update(
 			model,
@@ -10906,7 +10906,7 @@ var $elm$core$List$concatMap = F2(
 		return $elm$core$List$concat(
 			A2($elm$core$List$map, f, list));
 	});
-var $tricycle$elm_actor_framework$Framework$Internal$Message$filterAppMsgs = function (msg) {
+var $bellroy$elm_actor_framework$Framework$Internal$Message$filterAppMsgs = function (msg) {
 	_v0$2:
 	while (true) {
 		switch (msg.$) {
@@ -10916,7 +10916,7 @@ var $tricycle$elm_actor_framework$Framework$Internal$Message$filterAppMsgs = fun
 			case 'Operate':
 				if (msg.a.$ === 'Batch') {
 					var batchMsgs = msg.a.a;
-					return A2($elm$core$List$concatMap, $tricycle$elm_actor_framework$Framework$Internal$Message$filterAppMsgs, batchMsgs);
+					return A2($elm$core$List$concatMap, $bellroy$elm_actor_framework$Framework$Internal$Message$filterAppMsgs, batchMsgs);
 				} else {
 					break _v0$2;
 				}
@@ -10926,42 +10926,42 @@ var $tricycle$elm_actor_framework$Framework$Internal$Message$filterAppMsgs = fun
 	}
 	return _List_Nil;
 };
-var $tricycle$elm_actor_framework$Framework$Internal$Message$filterNoOp = $elm$core$List$filter(
+var $bellroy$elm_actor_framework$Framework$Internal$Message$filterNoOp = $elm$core$List$filter(
 	function (msg) {
-		return (!_Utils_eq(msg, $tricycle$elm_actor_framework$Framework$Internal$Message$NoOp)) && (!_Utils_eq(
+		return (!_Utils_eq(msg, $bellroy$elm_actor_framework$Framework$Internal$Message$NoOp)) && (!_Utils_eq(
 			msg,
-			$tricycle$elm_actor_framework$Framework$Internal$Message$Operate(
-				$tricycle$elm_actor_framework$Framework$Internal$Message$Batch(_List_Nil))));
+			$bellroy$elm_actor_framework$Framework$Internal$Message$Operate(
+				$bellroy$elm_actor_framework$Framework$Internal$Message$Batch(_List_Nil))));
 	});
-var $tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$toList = function (_v0) {
+var $bellroy$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$toList = function (_v0) {
 	var list = _v0.a;
 	return list;
 };
-var $tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$filterMap = function (f) {
+var $bellroy$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$filterMap = function (f) {
 	return A2(
 		$elm$core$Basics$composeR,
-		$tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$toList,
+		$bellroy$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$toList,
 		$elm$core$List$filterMap(f));
 };
-var $tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$Inhabitant$toTuple = function (_v0) {
+var $bellroy$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$Inhabitant$toTuple = function (_v0) {
 	var tuple = _v0.a;
 	return tuple;
 };
-var $tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$getPidsOnAddress = function (queryAddress) {
-	return $tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$filterMap(
+var $bellroy$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$getPidsOnAddress = function (queryAddress) {
+	return $bellroy$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$filterMap(
 		A2(
 			$elm$core$Basics$composeR,
-			$tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$Inhabitant$toTuple,
+			$bellroy$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$Inhabitant$toTuple,
 			function (_v0) {
 				var address = _v0.a;
 				var pid = _v0.b;
 				return _Utils_eq(address, queryAddress) ? $elm$core$Maybe$Just(pid) : $elm$core$Maybe$Nothing;
 			}));
 };
-var $tricycle$elm_actor_framework$Framework$Internal$Model$getInhabitants = function (address) {
+var $bellroy$elm_actor_framework$Framework$Internal$Model$getInhabitants = function (address) {
 	return A2(
 		$elm$core$Basics$composeL,
-		$tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$getPidsOnAddress(address),
+		$bellroy$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$getPidsOnAddress(address),
 		function ($) {
 			return $.occupiedAddresses;
 		});
@@ -10982,88 +10982,88 @@ var $elm$core$Tuple$mapSecond = F2(
 			x,
 			func(y));
 	});
-var $tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$Inhabitant$Inhabitant = function (a) {
+var $bellroy$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$Inhabitant$Inhabitant = function (a) {
 	return {$: 'Inhabitant', a: a};
 };
-var $tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$Inhabitant$fromTuple = $tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$Inhabitant$Inhabitant;
-var $tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$insert = F2(
+var $bellroy$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$Inhabitant$fromTuple = $bellroy$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$Inhabitant$Inhabitant;
+var $bellroy$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$insert = F2(
 	function (address, pid) {
 		return A2(
 			$elm$core$Basics$composeR,
-			$tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$toList,
+			$bellroy$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$toList,
 			A2(
 				$elm$core$Basics$composeR,
 				$elm$core$List$cons(
-					$tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$Inhabitant$fromTuple(
+					$bellroy$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$Inhabitant$fromTuple(
 						_Utils_Tuple2(address, pid))),
-				$tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$fromList));
+				$bellroy$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$fromList));
 	});
-var $tricycle$elm_actor_framework$Framework$Internal$Model$populateAddress = F3(
+var $bellroy$elm_actor_framework$Framework$Internal$Model$populateAddress = F3(
 	function (address, pid, model) {
 		return _Utils_update(
 			model,
 			{
-				occupiedAddresses: A3($tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$insert, address, pid, model.occupiedAddresses)
+				occupiedAddresses: A3($bellroy$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$insert, address, pid, model.occupiedAddresses)
 			});
 	});
 var $elm$core$List$singleton = function (value) {
 	return _List_fromArray(
 		[value]);
 };
-var $tricycle$elm_actor_framework$Framework$Internal$Helper$List$postpend = function (list) {
+var $bellroy$elm_actor_framework$Framework$Internal$Helper$List$postpend = function (list) {
 	return A2(
 		$elm$core$Basics$composeR,
 		$elm$core$List$singleton,
 		$elm$core$Basics$append(list));
 };
-var $tricycle$elm_actor_framework$Framework$Internal$Pid$compare = F2(
+var $bellroy$elm_actor_framework$Framework$Internal$Pid$compare = F2(
 	function (a, b) {
 		return A2(
 			$elm$core$Basics$compare,
-			$tricycle$elm_actor_framework$Framework$Internal$Pid$toInt(a),
-			$tricycle$elm_actor_framework$Framework$Internal$Pid$toInt(b));
+			$bellroy$elm_actor_framework$Framework$Internal$Pid$toInt(a),
+			$bellroy$elm_actor_framework$Framework$Internal$Pid$toInt(b));
 	});
-var $tricycle$elm_actor_framework$Framework$Internal$Pid$equals = F2(
+var $bellroy$elm_actor_framework$Framework$Internal$Pid$equals = F2(
 	function (a, b) {
 		return _Utils_eq(
-			A2($tricycle$elm_actor_framework$Framework$Internal$Pid$compare, a, b),
+			A2($bellroy$elm_actor_framework$Framework$Internal$Pid$compare, a, b),
 			$elm$core$Basics$EQ);
 	});
-var $tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$Inhabitant$equals = F2(
+var $bellroy$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$Inhabitant$equals = F2(
 	function (a, b) {
-		var _v0 = $tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$Inhabitant$toTuple(b);
+		var _v0 = $bellroy$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$Inhabitant$toTuple(b);
 		var address_b = _v0.a;
 		var pid_b = _v0.b;
-		var _v1 = $tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$Inhabitant$toTuple(a);
+		var _v1 = $bellroy$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$Inhabitant$toTuple(a);
 		var address_a = _v1.a;
 		var pid_a = _v1.b;
-		return _Utils_eq(address_a, address_b) && A2($tricycle$elm_actor_framework$Framework$Internal$Pid$equals, pid_a, pid_b);
+		return _Utils_eq(address_a, address_b) && A2($bellroy$elm_actor_framework$Framework$Internal$Pid$equals, pid_a, pid_b);
 	});
-var $tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$remove = F2(
+var $bellroy$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$remove = F2(
 	function (address, pid) {
-		var inhabitantToRemove = $tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$Inhabitant$fromTuple(
+		var inhabitantToRemove = $bellroy$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$Inhabitant$fromTuple(
 			_Utils_Tuple2(address, pid));
 		return A2(
 			$elm$core$Basics$composeR,
-			$tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$toList,
+			$bellroy$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$toList,
 			A2(
 				$elm$core$Basics$composeR,
 				$elm$core$List$filter(
 					A2(
 						$elm$core$Basics$composeL,
 						$elm$core$Basics$not,
-						$tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$Inhabitant$equals(inhabitantToRemove))),
-				$tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$fromList));
+						$bellroy$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$Inhabitant$equals(inhabitantToRemove))),
+				$bellroy$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$fromList));
 	});
-var $tricycle$elm_actor_framework$Framework$Internal$Model$removeFromAddress = F3(
+var $bellroy$elm_actor_framework$Framework$Internal$Model$removeFromAddress = F3(
 	function (address, pid, model) {
 		return _Utils_update(
 			model,
 			{
-				occupiedAddresses: A3($tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$remove, address, pid, model.occupiedAddresses)
+				occupiedAddresses: A3($bellroy$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$remove, address, pid, model.occupiedAddresses)
 			});
 	});
-var $tricycle$elm_actor_framework$Framework$Internal$Model$removeFromView = F2(
+var $bellroy$elm_actor_framework$Framework$Internal$Model$removeFromView = F2(
 	function (pid, model) {
 		return _Utils_update(
 			model,
@@ -11073,15 +11073,15 @@ var $tricycle$elm_actor_framework$Framework$Internal$Model$removeFromView = F2(
 					A2(
 						$elm$core$Basics$composeL,
 						$elm$core$Basics$not,
-						$tricycle$elm_actor_framework$Framework$Internal$Pid$equals(pid)),
+						$bellroy$elm_actor_framework$Framework$Internal$Pid$equals(pid)),
 					model.views)
 			});
 	});
-var $tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$getAddressesForPid = function (queryPid) {
-	return $tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$filterMap(
+var $bellroy$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$getAddressesForPid = function (queryPid) {
+	return $bellroy$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$filterMap(
 		A2(
 			$elm$core$Basics$composeR,
-			$tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$Inhabitant$toTuple,
+			$bellroy$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$Inhabitant$toTuple,
 			function (_v0) {
 				var address = _v0.a;
 				var pid = _v0.b;
@@ -11450,97 +11450,97 @@ var $elm$core$Dict$remove = F2(
 			return x;
 		}
 	});
-var $tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$remove = function (pid) {
+var $bellroy$elm_actor_framework$Framework$Internal$Model$PidCollection$remove = function (pid) {
 	return A2(
 		$elm$core$Basics$composeR,
-		$tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$toDict,
+		$bellroy$elm_actor_framework$Framework$Internal$Model$PidCollection$toDict,
 		A2(
 			$elm$core$Basics$composeR,
 			$elm$core$Dict$remove(
-				$tricycle$elm_actor_framework$Framework$Internal$Pid$toInt(pid)),
-			$tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$fromDict));
+				$bellroy$elm_actor_framework$Framework$Internal$Pid$toInt(pid)),
+			$bellroy$elm_actor_framework$Framework$Internal$Model$PidCollection$fromDict));
 };
-var $tricycle$elm_actor_framework$Framework$Internal$Model$Instances$remove = function (pid) {
+var $bellroy$elm_actor_framework$Framework$Internal$Model$Instances$remove = function (pid) {
 	return A2(
 		$elm$core$Basics$composeR,
-		$tricycle$elm_actor_framework$Framework$Internal$Model$Instances$toPidCollection,
+		$bellroy$elm_actor_framework$Framework$Internal$Model$Instances$toPidCollection,
 		A2(
 			$elm$core$Basics$composeR,
-			$tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$remove(pid),
-			$tricycle$elm_actor_framework$Framework$Internal$Model$Instances$fromPidCollection));
+			$bellroy$elm_actor_framework$Framework$Internal$Model$PidCollection$remove(pid),
+			$bellroy$elm_actor_framework$Framework$Internal$Model$Instances$fromPidCollection));
 };
-var $tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$Children = function (a) {
+var $bellroy$elm_actor_framework$Framework$Internal$Model$Parents$Children$Children = function (a) {
 	return {$: 'Children', a: a};
 };
-var $tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$fromPidCollection = $tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$Children;
-var $tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$empty = $tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$fromPidCollection($tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$empty);
-var $tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$insert = F2(
+var $bellroy$elm_actor_framework$Framework$Internal$Model$Parents$Children$fromPidCollection = $bellroy$elm_actor_framework$Framework$Internal$Model$Parents$Children$Children;
+var $bellroy$elm_actor_framework$Framework$Internal$Model$Parents$Children$empty = $bellroy$elm_actor_framework$Framework$Internal$Model$Parents$Children$fromPidCollection($bellroy$elm_actor_framework$Framework$Internal$Model$PidCollection$empty);
+var $bellroy$elm_actor_framework$Framework$Internal$Model$PidCollection$insert = F2(
 	function (pid, a) {
 		return A2(
 			$elm$core$Basics$composeR,
-			$tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$toDict,
+			$bellroy$elm_actor_framework$Framework$Internal$Model$PidCollection$toDict,
 			A2(
 				$elm$core$Basics$composeR,
 				A2(
 					$elm$core$Dict$insert,
-					$tricycle$elm_actor_framework$Framework$Internal$Pid$toInt(pid),
+					$bellroy$elm_actor_framework$Framework$Internal$Pid$toInt(pid),
 					_Utils_Tuple2(pid, a)),
-				$tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$fromDict));
+				$bellroy$elm_actor_framework$Framework$Internal$Model$PidCollection$fromDict));
 	});
-var $tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$toPidCollection = function (_v0) {
+var $bellroy$elm_actor_framework$Framework$Internal$Model$Parents$Children$toPidCollection = function (_v0) {
 	var pidCollection = _v0.a;
 	return pidCollection;
 };
-var $tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$insert = function (pid) {
+var $bellroy$elm_actor_framework$Framework$Internal$Model$Parents$Children$insert = function (pid) {
 	return A2(
 		$elm$core$Basics$composeR,
-		$tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$toPidCollection,
+		$bellroy$elm_actor_framework$Framework$Internal$Model$Parents$Children$toPidCollection,
 		A2(
 			$elm$core$Basics$composeR,
-			A2($tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$insert, pid, _Utils_Tuple0),
-			$tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$fromPidCollection));
+			A2($bellroy$elm_actor_framework$Framework$Internal$Model$PidCollection$insert, pid, _Utils_Tuple0),
+			$bellroy$elm_actor_framework$Framework$Internal$Model$Parents$Children$fromPidCollection));
 };
-var $tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$toList = A2(
+var $bellroy$elm_actor_framework$Framework$Internal$Model$PidCollection$toList = A2(
 	$elm$core$Basics$composeR,
-	$tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$toDict,
+	$bellroy$elm_actor_framework$Framework$Internal$Model$PidCollection$toDict,
 	A2(
 		$elm$core$Basics$composeR,
 		$elm$core$Dict$toList,
 		$elm$core$List$map($elm$core$Tuple$second)));
-var $tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$toList = A2(
+var $bellroy$elm_actor_framework$Framework$Internal$Model$Parents$Children$toList = A2(
 	$elm$core$Basics$composeR,
-	$tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$toPidCollection,
+	$bellroy$elm_actor_framework$Framework$Internal$Model$Parents$Children$toPidCollection,
 	A2(
 		$elm$core$Basics$composeR,
-		$tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$toList,
+		$bellroy$elm_actor_framework$Framework$Internal$Model$PidCollection$toList,
 		$elm$core$List$map($elm$core$Tuple$first)));
-var $tricycle$elm_actor_framework$Framework$Internal$Model$Parents$toPidCollection = function (_v0) {
+var $bellroy$elm_actor_framework$Framework$Internal$Model$Parents$toPidCollection = function (_v0) {
 	var pidCollection = _v0.a;
 	return pidCollection;
 };
-var $tricycle$elm_actor_framework$Framework$Internal$Model$Parents$getDescendants = F2(
+var $bellroy$elm_actor_framework$Framework$Internal$Model$Parents$getDescendants = F2(
 	function (pid, parents) {
 		return A3(
 			$elm$core$List$foldl,
 			F2(
 				function (pid_, children) {
-					var inclusive = A2($tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$insert, pid_, children);
+					var inclusive = A2($bellroy$elm_actor_framework$Framework$Internal$Model$Parents$Children$insert, pid_, children);
 					return A3(
 						$elm$core$List$foldl,
-						$tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$insert,
+						$bellroy$elm_actor_framework$Framework$Internal$Model$Parents$Children$insert,
 						inclusive,
-						$tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$toList(
-							A2($tricycle$elm_actor_framework$Framework$Internal$Model$Parents$getDescendants, pid_, parents)));
+						$bellroy$elm_actor_framework$Framework$Internal$Model$Parents$Children$toList(
+							A2($bellroy$elm_actor_framework$Framework$Internal$Model$Parents$getDescendants, pid_, parents)));
 				}),
-			$tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$empty,
-			$tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$toList(
+			$bellroy$elm_actor_framework$Framework$Internal$Model$Parents$Children$empty,
+			$bellroy$elm_actor_framework$Framework$Internal$Model$Parents$Children$toList(
 				A2(
 					$elm$core$Maybe$withDefault,
-					$tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$empty,
+					$bellroy$elm_actor_framework$Framework$Internal$Model$Parents$Children$empty,
 					A2(
-						$tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$get,
+						$bellroy$elm_actor_framework$Framework$Internal$Model$PidCollection$get,
 						pid,
-						$tricycle$elm_actor_framework$Framework$Internal$Model$Parents$toPidCollection(parents)))));
+						$bellroy$elm_actor_framework$Framework$Internal$Model$Parents$toPidCollection(parents)))));
 	});
 var $elm$core$Dict$map = F2(
 	function (func, dict) {
@@ -11561,70 +11561,70 @@ var $elm$core$Dict$map = F2(
 				A2($elm$core$Dict$map, func, right));
 		}
 	});
-var $tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$map = function (f) {
+var $bellroy$elm_actor_framework$Framework$Internal$Model$PidCollection$map = function (f) {
 	return A2(
 		$elm$core$Basics$composeR,
-		$tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$toDict,
+		$bellroy$elm_actor_framework$Framework$Internal$Model$PidCollection$toDict,
 		A2(
 			$elm$core$Basics$composeR,
 			$elm$core$Dict$map(
 				function (_v0) {
 					return $elm$core$Tuple$mapSecond(f);
 				}),
-			$tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$fromDict));
+			$bellroy$elm_actor_framework$Framework$Internal$Model$PidCollection$fromDict));
 };
-var $tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$remove = function (pid) {
+var $bellroy$elm_actor_framework$Framework$Internal$Model$Parents$Children$remove = function (pid) {
 	return A2(
 		$elm$core$Basics$composeR,
-		$tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$toPidCollection,
+		$bellroy$elm_actor_framework$Framework$Internal$Model$Parents$Children$toPidCollection,
 		A2(
 			$elm$core$Basics$composeR,
-			$tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$remove(pid),
-			$tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$fromPidCollection));
+			$bellroy$elm_actor_framework$Framework$Internal$Model$PidCollection$remove(pid),
+			$bellroy$elm_actor_framework$Framework$Internal$Model$Parents$Children$fromPidCollection));
 };
-var $tricycle$elm_actor_framework$Framework$Internal$Model$Parents$remove = F2(
+var $bellroy$elm_actor_framework$Framework$Internal$Model$Parents$remove = F2(
 	function (pid, parents) {
-		return $tricycle$elm_actor_framework$Framework$Internal$Model$Parents$fromPidCollection(
+		return $bellroy$elm_actor_framework$Framework$Internal$Model$Parents$fromPidCollection(
 			A2(
-				$tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$map,
-				$tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$remove(pid),
+				$bellroy$elm_actor_framework$Framework$Internal$Model$PidCollection$map,
+				$bellroy$elm_actor_framework$Framework$Internal$Model$Parents$Children$remove(pid),
 				A2(
-					$tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$remove,
+					$bellroy$elm_actor_framework$Framework$Internal$Model$PidCollection$remove,
 					pid,
 					function (parentsPidCollection) {
 						return A3(
 							$elm$core$List$foldl,
-							$tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$remove,
+							$bellroy$elm_actor_framework$Framework$Internal$Model$PidCollection$remove,
 							parentsPidCollection,
-							$tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$toList(
-								A2($tricycle$elm_actor_framework$Framework$Internal$Model$Parents$getDescendants, pid, parents)));
+							$bellroy$elm_actor_framework$Framework$Internal$Model$Parents$Children$toList(
+								A2($bellroy$elm_actor_framework$Framework$Internal$Model$Parents$getDescendants, pid, parents)));
 					}(
-						$tricycle$elm_actor_framework$Framework$Internal$Model$Parents$toPidCollection(parents)))));
+						$bellroy$elm_actor_framework$Framework$Internal$Model$Parents$toPidCollection(parents)))));
 	});
-var $tricycle$elm_actor_framework$Framework$Internal$Model$removePid = F2(
+var $bellroy$elm_actor_framework$Framework$Internal$Model$removePid = F2(
 	function (pid, model) {
 		return _Utils_update(
 			model,
 			{
-				instances: A2($tricycle$elm_actor_framework$Framework$Internal$Model$Instances$remove, pid, model.instances),
+				instances: A2($bellroy$elm_actor_framework$Framework$Internal$Model$Instances$remove, pid, model.instances),
 				occupiedAddresses: A3(
 					$elm$core$List$foldl,
 					function (address) {
-						return A2($tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$remove, address, pid);
+						return A2($bellroy$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$remove, address, pid);
 					},
 					model.occupiedAddresses,
-					A2($tricycle$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$getAddressesForPid, pid, model.occupiedAddresses)),
-				parents: A2($tricycle$elm_actor_framework$Framework$Internal$Model$Parents$remove, pid, model.parents),
+					A2($bellroy$elm_actor_framework$Framework$Internal$Model$OccupiedAddresses$getAddressesForPid, pid, model.occupiedAddresses)),
+				parents: A2($bellroy$elm_actor_framework$Framework$Internal$Model$Parents$remove, pid, model.parents),
 				views: A2(
 					$elm$core$List$filter,
 					A2(
 						$elm$core$Basics$composeL,
 						$elm$core$Basics$not,
-						$tricycle$elm_actor_framework$Framework$Internal$Pid$equals(pid)),
+						$bellroy$elm_actor_framework$Framework$Internal$Pid$equals(pid)),
 					model.views)
 			});
 	});
-var $tricycle$elm_actor_framework$Framework$Internal$Pid$toSpawnedBy = function (pid) {
+var $bellroy$elm_actor_framework$Framework$Internal$Pid$toSpawnedBy = function (pid) {
 	if (pid.$ === 'System') {
 		return pid;
 	} else {
@@ -11643,16 +11643,16 @@ var $elm$core$Dict$update = F3(
 			return A2($elm$core$Dict$remove, targetKey, dictionary);
 		}
 	});
-var $tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$update = F2(
+var $bellroy$elm_actor_framework$Framework$Internal$Model$PidCollection$update = F2(
 	function (pid, f) {
 		return A2(
 			$elm$core$Basics$composeR,
-			$tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$toDict,
+			$bellroy$elm_actor_framework$Framework$Internal$Model$PidCollection$toDict,
 			A2(
 				$elm$core$Basics$composeR,
 				A2(
 					$elm$core$Dict$update,
-					$tricycle$elm_actor_framework$Framework$Internal$Pid$toInt(pid),
+					$bellroy$elm_actor_framework$Framework$Internal$Pid$toInt(pid),
 					A2(
 						$elm$core$Basics$composeR,
 						$elm$core$Maybe$map($elm$core$Tuple$second),
@@ -11663,48 +11663,48 @@ var $tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$update 
 								$elm$core$Basics$composeR,
 								$elm$core$Tuple$pair(pid),
 								$elm$core$Maybe$Just)))),
-				$tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$fromDict));
+				$bellroy$elm_actor_framework$Framework$Internal$Model$PidCollection$fromDict));
 	});
-var $tricycle$elm_actor_framework$Framework$Internal$Model$Parents$addChild = function (pid) {
+var $bellroy$elm_actor_framework$Framework$Internal$Model$Parents$addChild = function (pid) {
 	return A2(
 		$elm$core$Basics$composeR,
-		$tricycle$elm_actor_framework$Framework$Internal$Model$Parents$toPidCollection,
+		$bellroy$elm_actor_framework$Framework$Internal$Model$Parents$toPidCollection,
 		A2(
 			$elm$core$Basics$composeR,
 			A2(
-				$tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$update,
-				$tricycle$elm_actor_framework$Framework$Internal$Pid$toSpawnedBy(pid),
+				$bellroy$elm_actor_framework$Framework$Internal$Model$PidCollection$update,
+				$bellroy$elm_actor_framework$Framework$Internal$Pid$toSpawnedBy(pid),
 				A2(
 					$elm$core$Basics$composeR,
-					$elm$core$Maybe$withDefault($tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$empty),
-					$tricycle$elm_actor_framework$Framework$Internal$Model$Parents$Children$insert(pid))),
-			$tricycle$elm_actor_framework$Framework$Internal$Model$Parents$fromPidCollection));
+					$elm$core$Maybe$withDefault($bellroy$elm_actor_framework$Framework$Internal$Model$Parents$Children$empty),
+					$bellroy$elm_actor_framework$Framework$Internal$Model$Parents$Children$insert(pid))),
+			$bellroy$elm_actor_framework$Framework$Internal$Model$Parents$fromPidCollection));
 };
-var $tricycle$elm_actor_framework$Framework$Internal$Model$Instances$insert = F2(
+var $bellroy$elm_actor_framework$Framework$Internal$Model$Instances$insert = F2(
 	function (pid, instance) {
 		return A2(
 			$elm$core$Basics$composeR,
-			$tricycle$elm_actor_framework$Framework$Internal$Model$Instances$toPidCollection,
+			$bellroy$elm_actor_framework$Framework$Internal$Model$Instances$toPidCollection,
 			A2(
 				$elm$core$Basics$composeR,
-				A2($tricycle$elm_actor_framework$Framework$Internal$Model$PidCollection$insert, pid, instance),
-				$tricycle$elm_actor_framework$Framework$Internal$Model$Instances$fromPidCollection));
+				A2($bellroy$elm_actor_framework$Framework$Internal$Model$PidCollection$insert, pid, instance),
+				$bellroy$elm_actor_framework$Framework$Internal$Model$Instances$fromPidCollection));
 	});
-var $tricycle$elm_actor_framework$Framework$Internal$Pid$Pid = function (a) {
+var $bellroy$elm_actor_framework$Framework$Internal$Pid$Pid = function (a) {
 	return {$: 'Pid', a: a};
 };
-var $tricycle$elm_actor_framework$Framework$Internal$Pid$new = function (_v0) {
+var $bellroy$elm_actor_framework$Framework$Internal$Pid$new = function (_v0) {
 	var previousPid = _v0.previousPid;
 	var spawnedBy = _v0.spawnedBy;
-	return $tricycle$elm_actor_framework$Framework$Internal$Pid$Pid(
+	return $bellroy$elm_actor_framework$Framework$Internal$Pid$Pid(
 		{
-			id: 1 + $tricycle$elm_actor_framework$Framework$Internal$Pid$toInt(previousPid),
+			id: 1 + $bellroy$elm_actor_framework$Framework$Internal$Pid$toInt(previousPid),
 			spawnedBy: spawnedBy
 		});
 };
-var $tricycle$elm_actor_framework$Framework$Internal$Model$spawnInstance = F5(
+var $bellroy$elm_actor_framework$Framework$Internal$Model$spawnInstance = F5(
 	function (factory, spawnedBy, actorName, flags, model) {
-		var newPid = $tricycle$elm_actor_framework$Framework$Internal$Pid$new(
+		var newPid = $bellroy$elm_actor_framework$Framework$Internal$Pid$new(
 			{previousPid: model.lastPid, spawnedBy: spawnedBy});
 		var _v0 = A2(
 			factory,
@@ -11716,27 +11716,27 @@ var $tricycle$elm_actor_framework$Framework$Internal$Model$spawnInstance = F5(
 			_Utils_update(
 				model,
 				{
-					instances: A3($tricycle$elm_actor_framework$Framework$Internal$Model$Instances$insert, newPid, appModel, model.instances),
+					instances: A3($bellroy$elm_actor_framework$Framework$Internal$Model$Instances$insert, newPid, appModel, model.instances),
 					lastPid: newPid,
-					parents: A2($tricycle$elm_actor_framework$Framework$Internal$Model$Parents$addChild, newPid, model.parents)
+					parents: A2($bellroy$elm_actor_framework$Framework$Internal$Model$Parents$addChild, newPid, model.parents)
 				}),
 			msg);
 	});
-var $tricycle$elm_actor_framework$Framework$Internal$Model$updateDocumentTitle = F2(
+var $bellroy$elm_actor_framework$Framework$Internal$Model$updateDocumentTitle = F2(
 	function (title, model) {
 		return _Utils_update(
 			model,
 			{documentTitle: title});
 	});
-var $tricycle$elm_actor_framework$Framework$Internal$Model$updateInstance = F3(
+var $bellroy$elm_actor_framework$Framework$Internal$Model$updateInstance = F3(
 	function (model, pid, appModel) {
 		return _Utils_update(
 			model,
 			{
-				instances: A3($tricycle$elm_actor_framework$Framework$Internal$Model$Instances$insert, pid, appModel, model.instances)
+				instances: A3($bellroy$elm_actor_framework$Framework$Internal$Model$Instances$insert, pid, appModel, model.instances)
 			});
 	});
-var $tricycle$elm_actor_framework$Framework$Internal$Update$andThen = F4(
+var $bellroy$elm_actor_framework$Framework$Internal$Update$andThen = F4(
 	function (args, maybePid, msg, _v11) {
 		var model = _v11.a;
 		var cmd = _v11.b;
@@ -11751,9 +11751,9 @@ var $tricycle$elm_actor_framework$Framework$Internal$Update$andThen = F4(
 						_List_fromArray(
 							[cmd])),
 					$elm$core$Platform$Cmd$batch)),
-			A4($tricycle$elm_actor_framework$Framework$Internal$Update$update, args, maybePid, msg, model));
+			A4($bellroy$elm_actor_framework$Framework$Internal$Update$update, args, maybePid, msg, model));
 	});
-var $tricycle$elm_actor_framework$Framework$Internal$Update$update = F4(
+var $bellroy$elm_actor_framework$Framework$Internal$Update$update = F4(
 	function (args, maybePid, msg, model) {
 		update:
 		while (true) {
@@ -11784,12 +11784,12 @@ var $tricycle$elm_actor_framework$Framework$Internal$Update$update = F4(
 								var first = _v1.a;
 								var rest = _v1.b;
 								return A4(
-									$tricycle$elm_actor_framework$Framework$Internal$Update$andThen,
+									$bellroy$elm_actor_framework$Framework$Internal$Update$andThen,
 									args,
 									maybePid,
-									$tricycle$elm_actor_framework$Framework$Internal$Message$Operate(
-										$tricycle$elm_actor_framework$Framework$Internal$Message$Batch(rest)),
-									A4($tricycle$elm_actor_framework$Framework$Internal$Update$update, args, maybePid, first, model));
+									$bellroy$elm_actor_framework$Framework$Internal$Message$Operate(
+										$bellroy$elm_actor_framework$Framework$Internal$Message$Batch(rest)),
+									A4($bellroy$elm_actor_framework$Framework$Internal$Update$update, args, maybePid, first, model));
 							}
 						case 'Command':
 							var cmd = msg.a.a;
@@ -11799,32 +11799,32 @@ var $tricycle$elm_actor_framework$Framework$Internal$Update$update = F4(
 							var address = _v2.a;
 							var msgForPid = _v2.b;
 							return function (msg_) {
-								return A4($tricycle$elm_actor_framework$Framework$Internal$Update$update, args, maybePid, msg_, model);
+								return A4($bellroy$elm_actor_framework$Framework$Internal$Update$update, args, maybePid, msg_, model);
 							}(
 								A3(
 									$elm$core$Basics$composeL,
-									$tricycle$elm_actor_framework$Framework$Internal$Message$Operate,
-									$tricycle$elm_actor_framework$Framework$Internal$Message$Batch,
+									$bellroy$elm_actor_framework$Framework$Internal$Message$Operate,
+									$bellroy$elm_actor_framework$Framework$Internal$Message$Batch,
 									A2(
 										$elm$core$List$map,
 										function (pid_) {
-											return $tricycle$elm_actor_framework$Framework$Internal$Message$Operate(
-												A2($tricycle$elm_actor_framework$Framework$Internal$Message$ForPid, pid_, msgForPid));
+											return $bellroy$elm_actor_framework$Framework$Internal$Message$Operate(
+												A2($bellroy$elm_actor_framework$Framework$Internal$Message$ForPid, pid_, msgForPid));
 										},
-										A2($tricycle$elm_actor_framework$Framework$Internal$Model$getInhabitants, address, model))));
+										A2($bellroy$elm_actor_framework$Framework$Internal$Model$getInhabitants, address, model))));
 						case 'ForPid':
 							var _v3 = msg.a;
 							var pid = _v3.a;
 							var msgForPid = _v3.b;
-							var _v4 = A2($tricycle$elm_actor_framework$Framework$Internal$Model$getInstance, pid, model);
+							var _v4 = A2($bellroy$elm_actor_framework$Framework$Internal$Model$getInstance, pid, model);
 							if (_v4.$ === 'Just') {
 								var state = _v4.a;
 								var _v5 = A2(
 									$elm$core$Tuple$mapSecond,
-									$tricycle$elm_actor_framework$Framework$Internal$Message$filterNoOp,
+									$bellroy$elm_actor_framework$Framework$Internal$Message$filterNoOp,
 									A2(
 										$elm$core$Tuple$mapFirst,
-										A2($tricycle$elm_actor_framework$Framework$Internal$Model$updateInstance, model, pid),
+										A2($bellroy$elm_actor_framework$Framework$Internal$Model$updateInstance, model, pid),
 										A3(
 											$elm$core$List$foldl,
 											F2(
@@ -11834,11 +11834,11 @@ var $tricycle$elm_actor_framework$Framework$Internal$Update$update = F4(
 													var instanceUpdate = apply(model_).update;
 													return A2(
 														$elm$core$Tuple$mapSecond,
-														$tricycle$elm_actor_framework$Framework$Internal$Helper$List$postpend(msgs_),
+														$bellroy$elm_actor_framework$Framework$Internal$Helper$List$postpend(msgs_),
 														A2(instanceUpdate, appMsg, pid));
 												}),
 											_Utils_Tuple2(state, _List_Nil),
-											$tricycle$elm_actor_framework$Framework$Internal$Message$filterAppMsgs(msgForPid))));
+											$bellroy$elm_actor_framework$Framework$Internal$Message$filterAppMsgs(msgForPid))));
 								var updatedModel = _v5.a;
 								var newMsgs = _v5.b;
 								if ($elm$core$List$isEmpty(newMsgs)) {
@@ -11846,7 +11846,7 @@ var $tricycle$elm_actor_framework$Framework$Internal$Update$update = F4(
 								} else {
 									var $temp$args = args,
 										$temp$maybePid = maybePid,
-										$temp$msg = $tricycle$elm_actor_framework$Framework$Internal$Message$batch(newMsgs),
+										$temp$msg = $bellroy$elm_actor_framework$Framework$Internal$Message$batch(newMsgs),
 										$temp$model = updatedModel;
 									args = $temp$args;
 									maybePid = $temp$maybePid;
@@ -11862,11 +11862,11 @@ var $tricycle$elm_actor_framework$Framework$Internal$Update$update = F4(
 							var flags = _v7.a;
 							var actorName = _v7.b;
 							var callback = _v7.c;
-							var spawnedBy = A2($elm$core$Maybe$withDefault, $tricycle$elm_actor_framework$Framework$Internal$Pid$system, maybePid);
-							var _v8 = A5($tricycle$elm_actor_framework$Framework$Internal$Model$spawnInstance, factory, spawnedBy, actorName, flags, model);
+							var spawnedBy = A2($elm$core$Maybe$withDefault, $bellroy$elm_actor_framework$Framework$Internal$Pid$system, maybePid);
+							var _v8 = A5($bellroy$elm_actor_framework$Framework$Internal$Model$spawnInstance, factory, spawnedBy, actorName, flags, model);
 							var updatedModel = _v8.a;
 							var newMsg = _v8.b;
-							var newMsgs = $tricycle$elm_actor_framework$Framework$Internal$Message$filterNoOp(
+							var newMsgs = $bellroy$elm_actor_framework$Framework$Internal$Message$filterNoOp(
 								_List_fromArray(
 									[
 										newMsg,
@@ -11877,7 +11877,7 @@ var $tricycle$elm_actor_framework$Framework$Internal$Update$update = F4(
 							} else {
 								var $temp$args = args,
 									$temp$maybePid = maybePid,
-									$temp$msg = $tricycle$elm_actor_framework$Framework$Internal$Message$batch(newMsgs),
+									$temp$msg = $bellroy$elm_actor_framework$Framework$Internal$Message$batch(newMsgs),
 									$temp$model = updatedModel;
 								args = $temp$args;
 								maybePid = $temp$maybePid;
@@ -11888,36 +11888,36 @@ var $tricycle$elm_actor_framework$Framework$Internal$Update$update = F4(
 						case 'StopProcess':
 							var pid = msg.a.a;
 							return _Utils_Tuple2(
-								A2($tricycle$elm_actor_framework$Framework$Internal$Model$removePid, pid, model),
+								A2($bellroy$elm_actor_framework$Framework$Internal$Model$removePid, pid, model),
 								$elm$core$Platform$Cmd$none);
 						case 'AddToView':
 							var pid = msg.a.a;
 							return _Utils_Tuple2(
-								A2($tricycle$elm_actor_framework$Framework$Internal$Model$addToView, pid, model),
+								A2($bellroy$elm_actor_framework$Framework$Internal$Model$addToView, pid, model),
 								$elm$core$Platform$Cmd$none);
 						case 'RemoveFromView':
 							var pid = msg.a.a;
 							return _Utils_Tuple2(
-								A2($tricycle$elm_actor_framework$Framework$Internal$Model$removeFromView, pid, model),
+								A2($bellroy$elm_actor_framework$Framework$Internal$Model$removeFromView, pid, model),
 								$elm$core$Platform$Cmd$none);
 						case 'PopulateAddress':
 							var _v9 = msg.a;
 							var address = _v9.a;
 							var pid = _v9.b;
 							return _Utils_Tuple2(
-								A3($tricycle$elm_actor_framework$Framework$Internal$Model$populateAddress, address, pid, model),
+								A3($bellroy$elm_actor_framework$Framework$Internal$Model$populateAddress, address, pid, model),
 								$elm$core$Platform$Cmd$none);
 						case 'RemoveFromAddress':
 							var _v10 = msg.a;
 							var address = _v10.a;
 							var pid = _v10.b;
 							return _Utils_Tuple2(
-								A3($tricycle$elm_actor_framework$Framework$Internal$Model$removeFromAddress, address, pid, model),
+								A3($bellroy$elm_actor_framework$Framework$Internal$Model$removeFromAddress, address, pid, model),
 								$elm$core$Platform$Cmd$none);
 						default:
 							var title = msg.a.a;
 							return _Utils_Tuple2(
-								A2($tricycle$elm_actor_framework$Framework$Internal$Model$updateDocumentTitle, title, model),
+								A2($bellroy$elm_actor_framework$Framework$Internal$Model$updateDocumentTitle, title, model),
 								$elm$core$Platform$Cmd$none);
 					}
 				default:
@@ -11925,7 +11925,7 @@ var $tricycle$elm_actor_framework$Framework$Internal$Update$update = F4(
 			}
 		}
 	});
-var $tricycle$elm_actor_framework$Framework$Browser$element = function (_v0) {
+var $bellroy$elm_actor_framework$Framework$Browser$element = function (_v0) {
 	var init = _v0.init;
 	var factory = _v0.factory;
 	var apply = _v0.apply;
@@ -11937,14 +11937,14 @@ var $tricycle$elm_actor_framework$Framework$Browser$element = function (_v0) {
 				$elm$core$Basics$composeR,
 				init,
 				function (msg) {
-					return A4($tricycle$elm_actor_framework$Framework$Internal$Update$update, updateArgs, $elm$core$Maybe$Nothing, msg, $tricycle$elm_actor_framework$Framework$Internal$Model$empty);
+					return A4($bellroy$elm_actor_framework$Framework$Internal$Update$update, updateArgs, $elm$core$Maybe$Nothing, msg, $bellroy$elm_actor_framework$Framework$Internal$Model$empty);
 				}),
 			subscriptions: $elm$core$Basics$always($elm$core$Platform$Sub$none),
-			update: A2($tricycle$elm_actor_framework$Framework$Internal$Update$update, updateArgs, $elm$core$Maybe$Nothing),
+			update: A2($bellroy$elm_actor_framework$Framework$Internal$Update$update, updateArgs, $elm$core$Maybe$Nothing),
 			view: A2(
 				$elm$core$Basics$composeL,
 				view,
-				$tricycle$elm_actor_framework$Framework$Internal$Render$element(apply))
+				$bellroy$elm_actor_framework$Framework$Internal$Render$element(apply))
 		});
 };
 var $author$project$Main$factory = function (actorName) {
@@ -11961,43 +11961,43 @@ var $author$project$Actors$Editor = {$: 'Editor'};
 var $author$project$AppFlags$EditorFlags = function (a) {
 	return {$: 'EditorFlags', a: a};
 };
-var $tricycle$elm_actor_framework$Framework$Internal$Message$AddToView = function (a) {
+var $bellroy$elm_actor_framework$Framework$Internal$Message$AddToView = function (a) {
 	return {$: 'AddToView', a: a};
 };
-var $tricycle$elm_actor_framework$Framework$Internal$Message$addToView = A2($elm$core$Basics$composeL, $tricycle$elm_actor_framework$Framework$Internal$Message$operate, $tricycle$elm_actor_framework$Framework$Internal$Message$AddToView);
-var $tricycle$elm_actor_framework$Framework$Message$addToView = $tricycle$elm_actor_framework$Framework$Internal$Message$addToView;
+var $bellroy$elm_actor_framework$Framework$Internal$Message$addToView = A2($elm$core$Basics$composeL, $bellroy$elm_actor_framework$Framework$Internal$Message$operate, $bellroy$elm_actor_framework$Framework$Internal$Message$AddToView);
+var $bellroy$elm_actor_framework$Framework$Message$addToView = $bellroy$elm_actor_framework$Framework$Internal$Message$addToView;
 var $author$project$Main$defaultTemplate = '\n<h1>An Html Template</h1>\n<counter-component></counter-component>\n<counter-component value="2" steps="2"></counter-component>\n<layout-component>\n    <h2>A Layout inside a Layout</h2>\n    <counter-component value="100"></counter-component>\n</layout-component>\n   ';
-var $tricycle$elm_actor_framework$Framework$Internal$Message$PopulateAddress = F2(
+var $bellroy$elm_actor_framework$Framework$Internal$Message$PopulateAddress = F2(
 	function (a, b) {
 		return {$: 'PopulateAddress', a: a, b: b};
 	});
-var $tricycle$elm_actor_framework$Framework$Internal$Message$populateAddress = F2(
+var $bellroy$elm_actor_framework$Framework$Internal$Message$populateAddress = F2(
 	function (address, pid) {
-		return $tricycle$elm_actor_framework$Framework$Internal$Message$operate(
-			A2($tricycle$elm_actor_framework$Framework$Internal$Message$PopulateAddress, address, pid));
+		return $bellroy$elm_actor_framework$Framework$Internal$Message$operate(
+			A2($bellroy$elm_actor_framework$Framework$Internal$Message$PopulateAddress, address, pid));
 	});
-var $tricycle$elm_actor_framework$Framework$Message$populateAddress = $tricycle$elm_actor_framework$Framework$Internal$Message$populateAddress;
+var $bellroy$elm_actor_framework$Framework$Message$populateAddress = $bellroy$elm_actor_framework$Framework$Internal$Message$populateAddress;
 var $author$project$Main$init = function (_v0) {
-	return $tricycle$elm_actor_framework$Framework$Message$batch(
+	return $bellroy$elm_actor_framework$Framework$Message$batch(
 		_List_fromArray(
 			[
 				A3(
-				$tricycle$elm_actor_framework$Framework$Message$spawn,
+				$bellroy$elm_actor_framework$Framework$Message$spawn,
 				$author$project$AppFlags$LayoutFlags($author$project$Framework$Template$Html$blank),
 				$author$project$Actors$Layout,
 				function (pid) {
-					return $tricycle$elm_actor_framework$Framework$Message$batch(
+					return $bellroy$elm_actor_framework$Framework$Message$batch(
 						_List_fromArray(
 							[
-								A2($tricycle$elm_actor_framework$Framework$Message$populateAddress, $author$project$Address$BaseLayoutAddress, pid),
-								$tricycle$elm_actor_framework$Framework$Message$addToView(pid)
+								A2($bellroy$elm_actor_framework$Framework$Message$populateAddress, $author$project$Address$BaseLayoutAddress, pid),
+								$bellroy$elm_actor_framework$Framework$Message$addToView(pid)
 							]));
 				}),
 				A3(
-				$tricycle$elm_actor_framework$Framework$Message$spawn,
+				$bellroy$elm_actor_framework$Framework$Message$spawn,
 				$author$project$AppFlags$EditorFlags($author$project$Main$defaultTemplate),
 				$author$project$Actors$Editor,
-				$tricycle$elm_actor_framework$Framework$Message$addToView)
+				$bellroy$elm_actor_framework$Framework$Message$addToView)
 			]));
 };
 var $elm$html$Html$Attributes$href = function (url) {
@@ -12040,7 +12040,7 @@ var $author$project$Main$view = function (output) {
 				output)
 			]));
 };
-var $author$project$Main$main = $tricycle$elm_actor_framework$Framework$Browser$element(
+var $author$project$Main$main = $bellroy$elm_actor_framework$Framework$Browser$element(
 	{apply: $author$project$Main$apply, factory: $author$project$Main$factory, init: $author$project$Main$init, view: $author$project$Main$view});
 _Platform_export({'Main':{'init':$author$project$Main$main(
 	$elm$json$Json$Decode$succeed(_Utils_Tuple0))(0)}});}(this));
